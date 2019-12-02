@@ -22,7 +22,7 @@ console.log("Checking .env: " + process.env.PING);
 
 function getWeather() {
   getJSON('https://api.darksky.net/forecast/' + process.env.DARK_SKY_KEY + '/' + baltimore, function(error, response){
-    writeJSON('./data/weather.json', response);
+    writeJSON('./data/weather.json', response.currently);
   });
 }
 
