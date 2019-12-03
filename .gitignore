@@ -5,4 +5,5 @@ npm-debug.log
 .idea
 *.iml
 .env
-/data/weather.json
+data/*
+!data/config.json
