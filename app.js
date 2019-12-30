@@ -5,13 +5,13 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
 const cron = require('node-cron');
+const request = require("request");
 const parseHTML = require('node-html-parser');
 const ParseXML = require('rss-parser');
 const getJSON = require('get-json');
 const wiki = require('wikijs').default;
 const writeJSON = require('write-json-file');
 const Twitter = require('twitter');
-
 
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
@@ -89,27 +89,60 @@ function getWikis() {
 
 function getMediumFeed() {
   let parser = new ParseXML();
-  parser.parseURL('https://medium.com/feed/@markadkins/', function(err, feed) {
+  parser.parseURL('https://medium.com/feed/@markadkins/', function(error, feed) {
     writeJSON('./data/blogFeed.json', feed);
   })
 }
 
+function getBelleseJobs() {
+    let jobSource;
+    let postings;
+    let output = [];
+    request({uri: "https://bellese.io/careers/"}, function(error, response, body) {
+        jobSource   = parseHTML.parse(body);
+        postings    = jobSource.querySelector('.toggles').childNodes;
+        for(let i = 0; i < postings.length; i++) {
+            output[i] = {};
+            output[i].position = postings[i].childNodes[0].childNodes[0].childNodes[1].rawText;
+            output[i].description = postings[i].childNodes[1].childNodes[1].childNodes[1].innerHTML.replace(/\r?\t|\r|\t/g, '');
+        }
+        writeJSON('./data/jobs.json', output);
+    });
+}
+
+function getCAPCOMData() {
+    getJSON('https://capcom.io/api/coords/ISS%20(ZARYA)/?key=' + process.env.CAPCOM_API_KEY, function(error, response){
+        writeJSON('./data/iss.json', response);
+        // console.log("ISS Location Refreshed");
+    });
+
+    // Update ISS location every 5 seconds and store locally
+    (function(){
+        // do some stuff
+        setTimeout(getCAPCOMData, 5000);
+    })();
+}
+
 function getAllData() {
-  console.log("Data fetched");
-  getWeather();
-  getSupermoon();
-  getTweets();
-  getWikis();
-  getMediumFeed();
+    // ISS Data is intentionally excluded from this function because it needs to be updated more frequently
+    console.log("Data fetched");
+    getWeather();
+    getSupermoon();
+    getTweets();
+    getWikis();
+    getMediumFeed();
+    getBelleseJobs();
 }
 
 // Initial Data Setup
 getAllData();
+getCAPCOMData();
 
+// Update data sources every 5 mins
 cron.schedule('*/5 * * * *', () => {
-  // Update data sources every 5 mins
-  getAllData();
+    getAllData();
 });
+
 
 app.use(logger('dev'));
 app.use(express.json());
