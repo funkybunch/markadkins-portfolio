@@ -6,12 +6,7 @@ module.exports = {
     entry: "./public/js/app.js",
     output: {
         path: path.resolve(__dirname, "public/js"),
-        filename: "bundle.min.js",
+        filename: "app.min.js",
         publicPath: "/js/"
-    },
-    module: {
-        rules: [
-            { test: /\.js/, use: "moon-loader" }
-        ]
     }
 };
