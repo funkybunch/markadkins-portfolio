@@ -6,6 +6,11 @@
           <h1>Hello World!</h1>
         </div>
       </div>
+      <div class="row">
+        <div class="col w-6">
+          <CalloutCard v-bind:content="this.cardContent" />
+        </div>
+      </div>
     </div>
     <Footer />
   </div>
@@ -13,11 +18,18 @@
 
 <script>
   import Footer from './components/Footer.vue'
+  import CalloutCard from './components/CalloutCard.vue'
 
   export default {
     name: 'App',
+    data () {
+      return {
+        cardContent: this.$root.$data.cardContent
+      }
+    },
     components: {
-      Footer
+      Footer,
+      CalloutCard
     }
   }
 </script>

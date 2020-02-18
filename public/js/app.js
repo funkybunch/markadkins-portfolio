@@ -4,7 +4,11 @@ require("./analytics");
 
 new Vue({
     el: '#app',
-    data: {},
+    data: {
+        cardContent: {
+            title: "Card Title"
+        }
+    },
     methods: {},
     render: h => h(App)
 });
