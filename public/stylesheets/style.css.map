@@ -3,11 +3,11 @@
 	"file": "style.css",
 	"sources": [
 		"style.sass",
-		"components/_config.sass",
-		"components/_colors.sass",
-		"components/_spacing.sass",
-		"components/_breakpoints.sass",
-		"components/_grid.sass",
+		"base/_config.sass",
+		"base/_colors.sass",
+		"base/_spacing.sass",
+		"base/_breakpoints.sass",
+		"base/_grid.sass",
 		"components/_footer.sass"
 	],
 	"names": [],

@@ -8,3 +8,5 @@ npm-debug.log
 data/*
 !data/config.json
 CONTENT.txt
+public/images/*
+!public/images/portfolio-logo-white.svg
