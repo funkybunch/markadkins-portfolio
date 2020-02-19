@@ -12,6 +12,7 @@ const getJSON = require('get-json');
 const wiki = require('wikijs').default;
 const writeJSON = require('write-json-file');
 const Twitter = require('twitter');
+const fs = require('fs');
 
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
@@ -113,25 +114,30 @@ function getBelleseJobs() {
 function getCAPCOMData() {
     getJSON('https://capcom.io/api/coords/ISS%20(ZARYA)/?key=' + process.env.CAPCOM_API_KEY, function(error, response){
         writeJSON('./data/iss.json', response);
-        // console.log("ISS Location Refreshed");
+        let output = {};
+        output.iss = response
+        writeJSON('./public/js/flight.json', output);
     });
 
     // Update ISS location every 5 seconds and store locally
     (function(){
-        // do some stuff
         setTimeout(getCAPCOMData, 5000);
     })();
 }
 
 function getAllData() {
     // ISS Data is intentionally excluded from this function because it needs to be updated more frequently
-    console.log("Data fetched");
     getWeather();
     getSupermoon();
     getTweets();
     getWikis();
     getMediumFeed();
     getBelleseJobs();
+    let output = {};
+    let jobsFile = fs.readFileSync('./data/jobs.json');
+    output.jobs = JSON.parse(jobsFile);
+    writeJSON('./public/js/data.json', output);
+    console.log("Data fetched");
 }
 
 // Initial Data Setup
@@ -142,7 +148,6 @@ getCAPCOMData();
 cron.schedule('*/5 * * * *', () => {
     getAllData();
 });
-
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -157,6 +162,5 @@ app.use(sassMiddleware({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 module.exports = app;

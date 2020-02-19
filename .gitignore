@@ -10,3 +10,4 @@ data/*
 CONTENT.txt
 public/images/*
 !public/images/portfolio-logo-white.svg
+public/js/*.json
