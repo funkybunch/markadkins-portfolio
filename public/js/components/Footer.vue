@@ -15,18 +15,17 @@
                         <span>999</span>
                         <span>3882</span>
                     </p>
-                    <p>
-                        <span>hello<i class="fal fa-at"></i>bymark.co</span>
-                    </p>
+                    <copy-popover v-bind:content="copyPopoverContent"/>
                 </div>
             </div>
             <div class="col w-6">
                 <div class="row footer-aside">
                     <div class="col w-6 association-logo">
                         <img src="/images/portfolio-PA_Member_Logo.svg"/>
+<!--                        <a href="https://services.acm.org/public/vcard/vcard.cfm?handle=markadkins">ACM Verification</a>-->
                     </div>
                     <div class="col w-6 copyright">
-                        <p>&copy;&nbsp;2020&nbsp;Mark&nbsp;Adkins<br/>All&nbsp;Rights&nbsp;Reserved</p>
+                        <p>&copy;&nbsp;{{ new Date().getFullYear() }}&nbsp;Mark&nbsp;Adkins<br/>All&nbsp;Rights&nbsp;Reserved</p>
                     </div>
                 </div>
             </div>
@@ -35,7 +34,16 @@
 </template>
 
 <script>
-  export default {
-    name: 'Footer'
-  }
+    import CopyPopover from './CopyPopover.vue'
+    export default {
+        name: 'Footer',
+        data() {
+            return {
+                copyPopoverContent: 'hello<i class="fal fa-at"></i>bymark.co'
+            }
+        },
+        components: {
+            CopyPopover
+        }
+    }
 </script>

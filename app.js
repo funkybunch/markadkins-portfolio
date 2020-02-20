@@ -99,15 +99,25 @@ function getBelleseJobs() {
     let jobSource;
     let postings;
     let output = [];
+    let parseError = false;
+
     request({uri: "https://bellese.io/careers/"}, function(error, response, body) {
         jobSource   = parseHTML.parse(body);
-        postings    = jobSource.querySelector('.toggles').childNodes;
-        for(let i = 0; i < postings.length; i++) {
-            output[i] = {};
-            output[i].position = postings[i].childNodes[0].childNodes[0].childNodes[1].rawText;
-            output[i].description = postings[i].childNodes[1].childNodes[1].childNodes[1].innerHTML.replace(/\r?\t|\r|\t/g, '');
+        try {
+            postings    = jobSource.querySelector('.toggles').childNodes;
+            for(let i = 0; i < postings.length; i++) {
+                output[i] = {};
+                output[i].position = postings[i].childNodes[0].childNodes[0].childNodes[1].rawText;
+                output[i].description = postings[i].childNodes[1].childNodes[1].childNodes[1].innerHTML.replace(/\r?\t|\r|\t/g, '');
+            }
+        } catch(e) {
+            parseError = true;
+            console.log("Parse Error: Bellese Jobs");
         }
-        writeJSON('./data/jobs.json', output);
+        if(!error && !parseError) {
+            writeJSON('./data/jobs.json', output);
+            console.log("Parse Success: Bellese Jobs data written to local file");
+        }
     });
 }
 

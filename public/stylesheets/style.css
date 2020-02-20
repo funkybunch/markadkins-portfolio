@@ -567,6 +567,37 @@ aside.callout-card {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   padding: 24px 32px; }
 
+.copy-popover {
+  position: relative;
+  display: inline-block;
+  cursor: pointer; }
+  .copy-popover span {
+    visibility: hidden;
+    width: auto;
+    background-color: #FFFFFF;
+    color: #000000;
+    text-align: center;
+    border-radius: 6px;
+    padding: 4px 12px;
+    position: absolute;
+    z-index: 1;
+    top: -2px;
+    left: 110%;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.88px; }
+    .copy-popover span:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 100%;
+      margin-top: -6px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent #FFFFFF transparent transparent; }
+  .copy-popover:hover span {
+    visibility: visible; }
+
 * {
   font-family: 'Poppins', sans-serif;
   font-weight: normal; }
