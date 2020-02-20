@@ -15,7 +15,7 @@
                         <span>999</span>
                         <span>3882</span>
                     </p>
-                    <copy-popover v-bind:content="copyPopoverContent"/>
+                    <copy-popover v-bind:content="copyPopoverContent" v-bind:copy-value="copyClipboardValue"/>
                 </div>
             </div>
             <div class="col w-6">
@@ -39,7 +39,8 @@
         name: 'Footer',
         data() {
             return {
-                copyPopoverContent: 'hello<i class="fal fa-at"></i>bymark.co'
+                copyPopoverContent: 'hello<i class="fal fa-at"></i>bymark.co',
+                copyClipboardValue: 'hello@bymark.co'
             }
         },
         components: {

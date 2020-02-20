@@ -554,7 +554,7 @@ footer {
 
 @media all and (max-width: 480px) {
   footer .footer-aside.row {
-    margin-top: 32px; } }
+    margin-top: 64px; } }
 
 aside.callout-card {
   width: 100%;
@@ -571,8 +571,13 @@ aside.callout-card {
   position: relative;
   display: inline-block;
   cursor: pointer; }
+  .copy-popover .fa {
+    display: inline; }
   .copy-popover span {
     visibility: hidden;
+    display: inline-block;
+    min-width: 140px;
+    opacity: 0;
     width: auto;
     background-color: #FFFFFF;
     color: #000000;
@@ -585,7 +590,12 @@ aside.callout-card {
     left: 110%;
     font-size: 14px;
     font-weight: 600;
-    letter-spacing: 0.88px; }
+    letter-spacing: 0.88px;
+    transition: all 250ms cubic-bezier(0.43, 0.36, 0.44, 0.93); }
+    .copy-popover span .fal.success, .copy-popover span svg.success {
+      color: #26ad35; }
+    .copy-popover span .fal.error, .copy-popover span svg.error {
+      color: #890A0A; }
     .copy-popover span:after {
       content: "";
       position: absolute;
@@ -596,7 +606,42 @@ aside.callout-card {
       border-style: solid;
       border-color: transparent #FFFFFF transparent transparent; }
   .copy-popover:hover span {
+    visibility: visible;
+    opacity: 1; }
+  .copy-popover.scroll-visible span {
+    animation: toggle-popover-after-scroll 5s;
+    animation-delay: 500ms; }
+
+@keyframes toggle-popover-after-scroll {
+  0% {
+    visibility: hidden;
+    opacity: 0; }
+  1% {
     visibility: visible; }
+  6% {
+    opacity: 1; }
+  94% {
+    opacity: 1; }
+  99% {
+    opacity: 0; }
+  100% {
+    visibility: hidden; } }
+
+@media all and (max-width: 768px) {
+  .copy-popover span {
+    left: 0%;
+    margin-top: 36px;
+    box-shadow: 0 0 0 4px #1A36BB; }
+    .copy-popover span:after {
+      content: " ";
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      margin-top: -24px;
+      margin-left: -60px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent #FFFFFF transparent; } }
 
 * {
   font-family: 'Poppins', sans-serif;

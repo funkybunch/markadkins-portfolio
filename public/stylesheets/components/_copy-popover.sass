@@ -3,8 +3,14 @@
   display: inline-block
   cursor: pointer
 
+  .fa
+    display: inline
+
   span
     visibility: hidden
+    display: inline-block
+    min-width: 140px
+    opacity: 0
     width: auto
     background-color: $white
     color: $black
@@ -18,6 +24,12 @@
     font-size: 14px
     font-weight: 600
     letter-spacing: 0.88px
+    transition: all 250ms cubic-bezier(.43,.36,.44,.93)
+    .fal, svg
+      &.success
+        color: $success
+      &.error
+        color: $error
     &:after
       content: ""
       position: absolute
@@ -30,3 +42,42 @@
 
   &:hover span
     visibility: visible
+    opacity: 1
+
+  &.scroll-visible
+    span
+      animation: toggle-popover-after-scroll 5s
+      animation-delay: 500ms
+
+@keyframes toggle-popover-after-scroll
+  0%
+    visibility: hidden
+    opacity: 0
+  1%
+    visibility: visible
+  6%
+    opacity: 1
+  94%
+    opacity: 1
+  99%
+    opacity: 0
+  100%
+    visibility: hidden
+
+
+@media all and (max-width: $size-tablet-small)
+  .copy-popover
+    span
+      left: 0%
+      margin-top: $base-v-spacing*1.5
+      box-shadow: 0 0 0 4px $primary-blue
+      &:after
+        content: " "
+        position: absolute
+        bottom: 100%
+        left: 50%
+        margin-top: -24px
+        margin-left: -60px
+        border-width: 5px
+        border-style: solid
+        border-color: transparent transparent $white transparent
