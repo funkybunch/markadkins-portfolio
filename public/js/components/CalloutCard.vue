@@ -6,7 +6,7 @@
 </template>
 
 <script>
-    // import CalloutCardItem from './components/CalloutCardItem.vue'
+    // import CalloutCardItem from './CalloutCardItem.vue'
 
     export default {
         name: 'CalloutCard',
