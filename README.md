@@ -1,5 +1,5 @@
 # Portfolio Site
-[![Build Status](https://travis-ci.org/funkybunch/Portfolio-Site.svg?branch=master)](https://travis-ci.org/funkybunch/Portfolio-Site)
+[![Build Status](https://travis-ci.com/funkybunch/markadkins-portfolio.svg?branch=master)](https://travis-ci.com/funkybunch/markadkins-portfolio)
 
 This project is built using Node.js.  To install this project, clone the repository and simply run `npm install`.
 
