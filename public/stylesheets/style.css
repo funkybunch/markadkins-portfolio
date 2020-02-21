@@ -557,15 +557,80 @@ footer {
     margin-top: 64px; } }
 
 aside.callout-card {
+  position: relative;
   width: 100%;
   max-width: 680px;
   box-sizing: border-box;
   background-color: #FFFFFF;
   border-radius: 12px;
   min-height: 100px;
+  height: 590px;
   max-height: 590px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  padding: 24px 32px; }
+  padding: 24px 32px 0 32px;
+  display: flex;
+  flex-flow: column; }
+  aside.callout-card h2 {
+    padding-bottom: 16px;
+    flex: 0 1 auto; }
+  aside.callout-card .filter-button-group {
+    flex-grow: 0;
+    user-select: none;
+    padding-bottom: 12px;
+    border-bottom: 4px solid #4f4f4f; }
+    aside.callout-card .filter-button-group label {
+      cursor: pointer;
+      text-transform: capitalize;
+      border-radius: 24px;
+      border: 2px solid #000000;
+      display: inline-block;
+      box-sizing: border-box;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 0.67px;
+      text-align: center;
+      background-color: #FFFFFF;
+      padding: 8px 16px; }
+      aside.callout-card .filter-button-group label:hover {
+        background-color: #F1F1F1; }
+    aside.callout-card .filter-button-group input[type=radio] {
+      position: absolute;
+      visibility: hidden; }
+      aside.callout-card .filter-button-group input[type=radio]:checked + label {
+        background-color: #000000;
+        border-color: #000000;
+        color: #FFFFFF; }
+  aside.callout-card .results-container {
+    overflow: hidden;
+    flex-grow: 1;
+    position: relative; }
+    aside.callout-card .results-container .results-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: auto; }
+      aside.callout-card .results-container .results-content p:first-child {
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 1px; }
+
+.callout-card-item {
+  border-radius: 12px;
+  border: 3px solid rgba(79, 79, 79, 0.16);
+  height: 100px;
+  max-height: 100px;
+  background-color: #FFFFFF;
+  margin-bottom: 16px; }
+  .callout-card-item h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    line-height: 32px; }
+  .callout-card-item p {
+    margin: 0; }
 
 .copy-popover {
   position: relative;

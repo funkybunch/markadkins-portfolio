@@ -38,19 +38,9 @@ new Vue({
     el: '#app',
     data: {
         cardContent: {
-            title: "Card Title",
-            items: [
-                {
-                    icon: "design",
-                    color: "#5d1abb",
-                    title: cardContentJSON.jobs[0].position,
-                    action: "View Description",
-                    category: "Design",
-                    modal: {
-
-                    }
-                }
-            ]
+            title: "Open Positions",
+            type: "Postings",
+            items: cardContentJSON.jobs
         }
     },
     render: h => h(App)

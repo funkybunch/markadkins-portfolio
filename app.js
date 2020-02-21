@@ -100,19 +100,37 @@ function getBelleseJobs() {
     let postings;
     let output = [];
     let parseError = false;
+    let params = {
+        design: ['design', 'research'],
+        engineering: ['engineer', 'develop']
+    };
 
     request({uri: "https://bellese.io/careers/"}, function(error, response, body) {
         jobSource   = parseHTML.parse(body);
         try {
             postings    = jobSource.querySelector('.toggles').childNodes;
             for(let i = 0; i < postings.length; i++) {
+                let position = postings[i].childNodes[0].childNodes[0].childNodes[1].rawText;
                 output[i] = {};
-                output[i].position = postings[i].childNodes[0].childNodes[0].childNodes[1].rawText;
+                output[i].index = i;
+                output[i].position = position;
                 output[i].description = postings[i].childNodes[1].childNodes[1].childNodes[1].innerHTML.replace(/\r?\t|\r|\t/g, '');
+
+                let category = "other";
+                for(let item in params) {
+                    for(let j = 0; j < params[item].length; j++) {
+                        if(position.toLowerCase().includes(params[item][j])) {
+                            category = item;
+                        }
+                    }
+                }
+                output[i].category = category;
+                output[i].action = "View Description";
+                output[i].icon = '/images/icons/icon-' + category + '.svg';
             }
         } catch(e) {
             parseError = true;
-            console.log("Parse Error: Bellese Jobs");
+            console.log("Parse Error: Bellese Jobs failed to write to local file");
         }
         if(!error && !parseError) {
             writeJSON('./data/jobs.json', output);
