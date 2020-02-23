@@ -1,5 +1,6 @@
 # Portfolio Site
-[![Build Status](https://travis-ci.com/funkybunch/markadkins-portfolio.svg?branch=master)](https://travis-ci.com/funkybunch/markadkins-portfolio)
+[![TravisCI Build Status](https://travis-ci.com/funkybunch/markadkins-portfolio.svg?branch=master)](https://travis-ci.com/funkybunch/markadkins-portfolio)
+![Github Actions Build Status](https://github.com/funkybunch/markadkins-portfolio/workflows/Node.js%20CI/badge.svg?branch=master)
 
 This project is built using Node.js.  To install this project, clone the repository and simply run `npm install`.
 
