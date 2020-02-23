@@ -1,7 +1,7 @@
 <template>
-    <nav>
+    <nav class="header-container">
         <div class="row">
-            <div class="w-12">
+            <div class="col w-12">
                 <img src="/images/ma_portfolio_logo.svg"/>
             </div>
         </div>

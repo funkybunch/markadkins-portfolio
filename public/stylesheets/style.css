@@ -1,3 +1,7 @@
+/**
+  Copyright (c) 2020 Mark Adkins
+  All Rights Reserved
+ */
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap");
 h1 {
   font-size: 48px;
@@ -742,16 +746,19 @@ a {
 .app-container {
   margin: 0; }
 
-.main-container {
+.header-container {
+  background-color: #000000; }
+
+.main-container, .header-container {
   padding: 24px 48px;
   box-sizing: border-box; }
 
 @media all and (max-width: 991px) {
-  .main-container {
+  .main-container, .header-container {
     padding: 24px 16px; } }
 
 @media all and (max-width: 768px) {
-  .main-container {
+  .main-container, .header-container {
     padding: 0; } }
 
 @media all and (max-width: 480px) {
