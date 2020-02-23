@@ -14,6 +14,8 @@ const writeJSON = require('write-json-file');
 const Twitter = require('twitter');
 const fs = require('fs');
 
+const offlineMode = true;
+
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
 
@@ -140,32 +142,39 @@ function getBelleseJobs() {
 }
 
 function getCAPCOMData() {
-    getJSON('https://capcom.io/api/coords/ISS%20(ZARYA)/?key=' + process.env.CAPCOM_API_KEY, function(error, response){
-        writeJSON('./data/iss.json', response);
-        let output = {};
-        output.iss = response
-        writeJSON('./public/js/flight.json', output);
-    });
+    if(!offlineMode) {
+        getJSON('https://capcom.io/api/coords/ISS%20(ZARYA)/?key=' + process.env.CAPCOM_API_KEY, function(error, response){
+            writeJSON('./data/iss.json', response);
+            let output = {};
+            output.iss = response
+            writeJSON('./public/js/flight.json', output);
+        });
 
-    // Update ISS location every 5 seconds and store locally
-    (function(){
-        setTimeout(getCAPCOMData, 5000);
-    })();
+        // Update ISS location every 5 seconds and store locally
+        (function(){
+            setTimeout(getCAPCOMData, 5000);
+        })();
+    }
 }
 
 function getAllData() {
-    // ISS Data is intentionally excluded from this function because it needs to be updated more frequently
-    getWeather();
-    getSupermoon();
-    getTweets();
-    getWikis();
-    getMediumFeed();
-    getBelleseJobs();
-    let output = {};
-    let jobsFile = fs.readFileSync('./data/jobs.json');
-    output.jobs = JSON.parse(jobsFile);
-    writeJSON('./public/js/data.json', output);
-    console.log("Data fetched");
+    if(!offlineMode){
+        // ISS Data is intentionally excluded from this function
+        // because it needs to be updated more frequently
+        getWeather();
+        getSupermoon();
+        getTweets();
+        getWikis();
+        getMediumFeed();
+        getBelleseJobs();
+        let output = {};
+        let jobsFile = fs.readFileSync('./data/jobs.json');
+        output.jobs = JSON.parse(jobsFile);
+        writeJSON('./public/js/data.json', output);
+        console.log("Data fetched");
+    } else {
+        console.log("Running in offline mode.  Data not fetched.");
+    }
 }
 
 // Initial Data Setup
