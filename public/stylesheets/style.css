@@ -626,13 +626,20 @@ aside.callout-card {
   height: 100px;
   max-height: 100px;
   background-color: #FFFFFF;
-  margin-bottom: 16px; }
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 16px; }
   .callout-card-item h3 {
     margin: 0;
     font-size: 24px;
     font-weight: normal;
     letter-spacing: 1px;
-    line-height: 32px; }
+    line-height: 32px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
   .callout-card-item p {
     margin: 0; }
   .callout-card-item.design .icon-container {
@@ -640,6 +647,7 @@ aside.callout-card {
     border: none; }
   .callout-card-item.engineering .icon-container {
     background-color: #1A36BB;
+    padding-left: 4px;
     border: none; }
   .callout-card-item .icon-container {
     display: flex;
@@ -649,10 +657,18 @@ aside.callout-card {
     content: " ";
     height: 64px;
     width: 64px;
+    min-width: 64px;
+    min-height: 64px;
     border-radius: 50%;
     background-color: #FFFFFF;
     box-sizing: border-box;
-    border: 2px solid #000000; }
+    border: 2px solid #000000;
+    margin-right: 16px; }
+  .callout-card-item .item-content {
+    display: inline-block;
+    min-width: 0;
+    padding-right: 24px;
+    box-sizing: border-box; }
 
 .copy-popover {
   position: relative;
@@ -662,6 +678,7 @@ aside.callout-card {
     display: inline; }
   .copy-popover span {
     visibility: hidden;
+    white-space: nowrap;
     display: inline-block;
     min-width: 140px;
     opacity: 0;
