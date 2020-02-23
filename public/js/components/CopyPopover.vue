@@ -16,7 +16,7 @@
         props: ['content', 'copyValue'],
         data() {
             return {
-                hoverLabel: "Click&nbsp;to&nbsp;copy&nbsp;to&nbsp;clipboard"
+                hoverLabel: "Click to copy to clipboard"
             }
         },
         methods: {
@@ -29,7 +29,7 @@
                 setTimeout(this.resetCopyLabel, 5000);
             },
             resetCopyLabel() {
-                this.$data.hoverLabel = "Click&nbsp;to&nbsp;copy&nbsp;to&nbsp;clipboard"
+                this.$data.hoverLabel = "Click to copy to clipboard"
             }
         }
     }
