@@ -1,3 +1,8 @@
+/**
+  Copyright (c) 2020 Mark Adkins
+  All Rights Reserved
+ */
+
 import Vue from 'vue'
 import App from './App.vue'
 import cardContentJSON from './data.json'

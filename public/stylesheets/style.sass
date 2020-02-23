@@ -1,3 +1,8 @@
+/**
+  Copyright (c) 2020 Mark Adkins
+  All Rights Reserved
+ */
+
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap')
 @import "base/config"
 @import "base/grid"
@@ -19,16 +24,19 @@ a
 .app-container
   margin: 0
 
-.main-container
+.header-container
+  background-color: $black
+
+.main-container, .header-container
   padding: $base-v-spacing ($base-v-spacing*2)
   box-sizing: border-box
 
 @media all and (max-width: $size-tablet-large)
-  .main-container
+  .main-container, .header-container
     padding: $base-v-spacing $base-h-spacing
 
 @media all and (max-width: $size-tablet-small)
-  .main-container
+  .main-container, .header-container
     padding: 0
 
 @media all and (max-width: $size-mobile)
