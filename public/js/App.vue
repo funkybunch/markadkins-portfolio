@@ -1,5 +1,6 @@
 <template>
   <div class="app-container">
+    <Nav />
     <div class="main-container">
       <div class="row">
         <div class="col w-12">
@@ -17,6 +18,7 @@
 </template>
 
 <script>
+  import Nav from './components/Nav.vue'
   import Footer from './components/Footer.vue'
   import CalloutCard from './components/CalloutCard.vue'
 
@@ -28,6 +30,7 @@
       }
     },
     components: {
+      Nav,
       Footer,
       CalloutCard
     }
