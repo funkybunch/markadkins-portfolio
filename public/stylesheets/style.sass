@@ -24,19 +24,16 @@ a
 .app-container
   margin: 0
 
-.header-container
-  background-color: $black
-
-.main-container, .header-container
+.main-container, .header-container, .hero-container
   padding: $base-v-spacing ($base-v-spacing*2)
   box-sizing: border-box
 
 @media all and (max-width: $size-tablet-large)
-  .main-container, .header-container
+  .main-container, .header-container, .hero-container
     padding: $base-v-spacing $base-h-spacing
 
 @media all and (max-width: $size-tablet-small)
-  .main-container, .header-container
+  .main-container, .header-container, .hero-container
     padding: 0
 
 @media all and (max-width: $size-mobile)
