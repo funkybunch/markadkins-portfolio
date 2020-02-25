@@ -43,7 +43,7 @@ new Vue({
     el: '#app',
     data: {
         cardContent: {
-            title: "Open Positions",
+            title: "Work With Me",
             type: "Postings",
             items: cardContentJSON.jobs
         }

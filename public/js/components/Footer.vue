@@ -2,7 +2,7 @@
     <footer class="main-container">
         <div class="row">
             <div class="col w-6">
-                <img class="footer-logo" src="/images/portfolio-logo-white.svg"/>
+                <img class="footer-logo" src="/images/ma_portfolio_logo_footer.svg"/>
                 <div class="social-icons">
                     <img src="/images/Twitter.svg"/>
                     <img src="/images/Instagram.svg"/>

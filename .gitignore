@@ -9,5 +9,7 @@ data/*
 !data/config.json
 CONTENT.txt
 public/images/*
-!public/images/portfolio-logo-white.svg
+!public/images/ma_portfolio_logo_footer.svg
+!public/images/ma_portfolio_logo_dark.svg
+!public/images/ma_portfolio_logo_light.svg
 public/js/*.json

@@ -14,7 +14,7 @@ const writeJSON = require('write-json-file');
 const Twitter = require('twitter');
 const fs = require('fs');
 
-const offlineMode = true;
+const offlineMode = false;
 
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
@@ -115,7 +115,7 @@ function getBelleseJobs() {
                 let position = postings[i].childNodes[0].childNodes[0].childNodes[1].rawText;
                 output[i] = {};
                 output[i].index = i;
-                output[i].position = position;
+                output[i].title = position;
                 output[i].description = postings[i].childNodes[1].childNodes[1].childNodes[1].innerHTML.replace(/\r?\t|\r|\t/g, '');
 
                 let category = "other";

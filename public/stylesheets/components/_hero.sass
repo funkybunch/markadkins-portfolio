@@ -1,0 +1,49 @@
+$hero-height: 635px
+
+.hero
+  width: 100%
+  height: $hero-height
+  background: $white
+  .hero-container
+    padding-top: 0
+    padding-bottom: 0
+    .row
+      padding-top: 0
+      padding-bottom: 0
+  .hero-content
+    p
+      color: $white
+      font-size: 24px
+      font-weight: normal
+      letter-spacing: 1.2px
+      margin: $base-v-spacing/1.5 0
+      &.dark
+        color: $black
+
+    span
+      color: $white
+      font-size: 18px
+      font-weight: 500
+      &.dark
+        color: $black
+
+  .hero-image
+    width: 100%
+    height: 100%
+    max-height: $hero-height
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    content: ""
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: center top
+    opacity: 0.04
+
+  &.bellese
+    background: linear-gradient(-225deg, rgb(0, 45, 114) 0%, rgb(148, 39, 160) 100%)
+    .hero-image
+      @extend .hero-image
+      background-image: url('/images/bellese_hero.jpg')

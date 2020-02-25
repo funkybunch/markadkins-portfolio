@@ -1,38 +1,28 @@
 <template>
-  <div class="app-container">
-    <Nav />
-    <div class="main-container">
-      <div class="row">
-        <div class="col w-12">
-          <h1>Hello World!</h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col w-6">
-          <CalloutCard v-bind:content="this.cardContent" />
-        </div>
-      </div>
-    </div>
-    <Footer />
-  </div>
+  <ExperienceTemplate v-bind:content="bellese"/>
 </template>
 
 <script>
-  import Nav from './components/Nav.vue'
-  import Footer from './components/Footer.vue'
-  import CalloutCard from './components/CalloutCard.vue'
+  import ExperienceTemplate from './templates/Experience.vue'
 
   export default {
     name: 'App',
     data () {
       return {
-        cardContent: this.$root.$data.cardContent
+        bellese: {
+          hero: {
+            theme: "light",
+            class: "bellese",
+            brand: "/images/brands/bellese.svg",
+            heroContent: "Bellese is a user-driven service design company in Baltimore that partners with civic services clients in the public and private sectors.",
+            heroContentSubline: "2018 - Present"
+          },
+          callout: this.$root.$data.cardContent
+        }
       }
     },
     components: {
-      Nav,
-      Footer,
-      CalloutCard
+      ExperienceTemplate
     }
   }
 </script>
