@@ -5,7 +5,6 @@
 
 import Vue from 'vue'
 import App from './App.vue'
-import cardContentJSON from './data.json'
 import Clipboard from 'v-clipboard'
 
 Vue.use(Clipboard)
@@ -42,11 +41,7 @@ Vue.directive('scrollvisible', {
 new Vue({
     el: '#app',
     data: {
-        cardContent: {
-            title: "Work With Me",
-            type: "Postings",
-            items: cardContentJSON.jobs
-        }
+
     },
     render: h => h(App)
 });

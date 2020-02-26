@@ -4,6 +4,7 @@
 
 <script>
   import ExperienceTemplate from './templates/Experience.vue'
+  import cardContentJSON from './data.json'
 
   export default {
     name: 'App',
@@ -17,7 +18,17 @@
             heroContent: "Bellese is a user-driven service design company in Baltimore that partners with civic services clients in the public and private sectors.",
             heroContentSubline: "2018 - Present"
           },
-          callout: this.$root.$data.cardContent
+          callout: {
+            title: "Work With Me",
+            type: "Postings",
+            items: cardContentJSON.jobs,
+            modalAction: {
+              label: "Apply on Bellese Site",
+              callback: function() {
+                window.open("https://bellese.io/careers", "_blank");
+              }
+            }
+          }
         }
       }
     },
