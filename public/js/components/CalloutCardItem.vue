@@ -5,7 +5,7 @@
         </figure>
         <div class="item-content">
             <h3 v-html="content.title" v-bind:title="content.title"></h3>
-            <p v-if="content.action">{{ content.action }}</p>
+            <a v-if="content.action" v-on:click.prevent="emitAction">{{ content.action }}</a>
             <p v-if="content.subtitle">{{ content.subtitle }}</p>
         </div>
     </div>
@@ -14,6 +14,11 @@
 <script>
     export default {
         name: 'CalloutCardItem',
-        props: ['content']
+        props: ['content', 'actionTrigger'],
+        methods: {
+            emitAction() {
+                this.$emit('update:actionTrigger', { triggered: true, item: this.$props.content });
+            },
+        }
     }
 </script>
