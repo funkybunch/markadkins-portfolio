@@ -4,13 +4,18 @@ $hero-height: 635px
   width: 100%
   height: $hero-height
   background: $white
+  position: relative
+  z-index: -1
   .hero-container
+    position: relative
+    z-index: 10
     padding-top: 0
     padding-bottom: 0
     .row
       padding-top: 0
       padding-bottom: 0
   .hero-content
+    position: relative
     p
       color: $white
       font-size: 24px
@@ -27,6 +32,9 @@ $hero-height: 635px
       &.dark
         color: $black
 
+    img
+      user-select: none
+
   .hero-image
     width: 100%
     height: 100%
@@ -41,6 +49,7 @@ $hero-height: 635px
     background-size: cover
     background-position: center top
     opacity: 0.04
+    z-index: 1
 
   &.bellese
     background: linear-gradient(-225deg, rgb(0, 45, 114) 0%, rgb(148, 39, 160) 100%)
