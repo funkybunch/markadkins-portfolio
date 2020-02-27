@@ -28,6 +28,14 @@ a
   padding: $base-v-spacing ($base-v-spacing*2)
   box-sizing: border-box
 
+.sr-only
+  position: absolute !important
+  height: 1px
+  width: 1px
+  overflow: hidden
+  clip: rect(1px 1px 1px 1px)
+  clip: rect(1px, 1px, 1px, 1px)
+
 @media all and (max-width: $size-tablet-large)
   .main-container, .header-container, .hero-container
     padding: $base-v-spacing $base-h-spacing

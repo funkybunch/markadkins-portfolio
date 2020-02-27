@@ -2,12 +2,12 @@
     <footer class="main-container">
         <div class="row">
             <div class="col w-6">
-                <img class="footer-logo" src="/images/ma_portfolio_logo_footer.svg"/>
+                <img class="footer-logo" alt="Mark Adkins Portfolio Logo" src="/images/ma_portfolio_logo_footer.svg"/>
                 <div class="social-icons">
-                    <img src="/images/Twitter.svg"/>
-                    <img src="/images/Instagram.svg"/>
-                    <img src="/images/Medium.svg"/>
-                    <img src="/images/LinkedIn.svg"/>
+                    <img alt="Mark Adkins on Twitter" src="/images/Twitter.svg"/>
+                    <img alt="Mark Adkins on Instagram" src="/images/Instagram.svg"/>
+                    <img alt="Mark Adkins on Medium" src="/images/Medium.svg"/>
+                    <img alt="Mark Adkins on LinkedIn" src="/images/LinkedIn.svg"/>
                 </div>
                 <div class="contact">
                     <p>
@@ -21,7 +21,7 @@
             <div class="col w-6">
                 <div class="row footer-aside">
                     <div class="col w-6 association-logo">
-                        <img src="/images/portfolio-PA_Member_Logo.svg"/>
+                        <img alt="Professional Association Logo" src="/images/portfolio-PA_Member_Logo.svg"/>
 <!--                        <a href="https://services.acm.org/public/vcard/vcard.cfm?handle=markadkins">ACM Verification</a>-->
                     </div>
                     <div class="col w-6 copyright">
