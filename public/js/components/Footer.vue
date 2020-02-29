@@ -4,10 +4,10 @@
             <div class="col w-6">
                 <img class="footer-logo" alt="Mark Adkins Portfolio Logo" v-bind:src="this.$root.$data.cdn + '/images/ma_portfolio_logo_footer.svg'"/>
                 <div class="social-icons">
-                    <img alt="Mark Adkins on Twitter" v-bind:src="this.$root.$data.cdn + '/images/Twitter.svg'"/>
-                    <img alt="Mark Adkins on Instagram" v-bind:src="this.$root.$data.cdn + '/images/Instagram.svg'"/>
-                    <img alt="Mark Adkins on Medium" v-bind:src="this.$root.$data.cdn + '/images/Medium.svg'"/>
-                    <img alt="Mark Adkins on LinkedIn" v-bind:src="this.$root.$data.cdn + '/images/LinkedIn.svg'"/>
+                    <a href="https://twitter.com/markadkn" target="_blank"><img alt="Mark Adkins on Twitter" v-bind:src="this.$root.$data.cdn + '/images/Twitter.svg'"/></a>
+                    <a href="https://instagram.com/markadkins" target="_blank"><img alt="Mark Adkins on Instagram" v-bind:src="this.$root.$data.cdn + '/images/Instagram.svg'"/></a>
+                    <a href="https://medium.com/@markadkins" target="_blank"><img alt="Mark Adkins on Medium" v-bind:src="this.$root.$data.cdn + '/images/Medium.svg'"/></a>
+                    <a href="https://linkedin.com/in/markadkn" target="_blank"><img alt="Mark Adkins on LinkedIn" v-bind:src="this.$root.$data.cdn + '/images/LinkedIn.svg'"/></a>
                 </div>
                 <div class="contact">
                     <p>
