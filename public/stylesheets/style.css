@@ -861,7 +861,7 @@ aside.callout-card {
   .hero.bellese {
     background: linear-gradient(-225deg, #002d72 0%, #9427a0 100%); }
     .hero.bellese .hero-image {
-      background-image: url("/images/bellese_hero.jpg"); }
+      background-image: url("https://cdn.markadkins.design/images/bellese_hero.jpg"); }
 
 .modal {
   display: block;
