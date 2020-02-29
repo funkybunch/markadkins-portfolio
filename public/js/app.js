@@ -3,13 +3,17 @@
   All Rights Reserved
  */
 
+// App Core
 import Vue from 'vue'
-import App from './App.vue'
+import AppView from './AppView.vue'
 import Clipboard from 'v-clipboard'
+import { router, data } from './router'
+const Portfolio = Vue.extend(AppView)
 
 Vue.use(Clipboard)
-require("./analytics");
+require("./analytics")
 
+//Directives
 Vue.directive('scrollvisible', {
     inViewport (el) {
         var rect = el.getBoundingClientRect()
@@ -38,11 +42,13 @@ Vue.directive('scrollvisible', {
     }
 })
 
-new Vue({
+// Constructor
+const app = new Portfolio({
     el: '#app',
-    data: {
-        cdn: "https://cdn.markadkins.design"
+    data() {
+        return {
+            cdn: data.cdn
+        }
     },
-    render: h => h(App)
+    router
 });
-
