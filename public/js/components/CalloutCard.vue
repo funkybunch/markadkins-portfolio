@@ -1,7 +1,8 @@
 <template>
     <aside class="callout-card">
         <h2>{{ content.title }}</h2>
-        <div class="filter-button-group">
+        <fieldset class="filter-button-group">
+            <legend class="sr-only">Job Opening Filter</legend>
             <span>
                 <input type="radio"
                        name="categoryFilter"
@@ -19,7 +20,7 @@
                        v-bind:id="'category-filter-' + category">
                 <label v-bind:for="'category-filter-' + category">{{ category }}</label>
             </span>
-        </div>
+        </fieldset>
         <div class="results-container">
             <div class="results-content">
                 <p>{{ results.length }} {{ content.type }}</p>
