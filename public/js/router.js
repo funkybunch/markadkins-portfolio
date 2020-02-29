@@ -12,6 +12,7 @@ Vue.use(Router)
 // Components & Data
 import ExperienceTemplate from './templates/Experience.vue'
 import cardContentJSON from './data.json'
+const ErrorTemplate = { template: '<h1>Error</h1>' }
 
 // Router Configuration
 const routes = [
@@ -41,7 +42,12 @@ const routes = [
                 }
             }
         }
-    }
+    },
+    {
+        path: '/error',
+        name: 'Error',
+        alias: '*',
+        component: ErrorTemplate }
 ]
 
 export const router = new Router({
