@@ -16,8 +16,8 @@ const fs = require('fs');
 
 const offlineMode = false;
 
-let indexRouter = require('./routes/index');
-let usersRouter = require('./routes/users');
+let spaRouter = require('./routes/index');
+let errorRouter = require('./routes/error');
 
 let app = express();
 
@@ -197,7 +197,7 @@ app.use(sassMiddleware({
   sourceMap: true
 }));
 app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', indexRouter);
+app.use('/', spaRouter);
+app.use('*', errorRouter);
 
 module.exports = app;
