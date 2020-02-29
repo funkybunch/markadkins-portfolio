@@ -1,7 +1,7 @@
 <template>
     <div v-bind:class="'callout-card-item ' + content.category ">
         <figure class="icon-container">
-            <img v-bind:alt="content.category + ' icon'" v-bind:src="content.icon"/>
+            <img v-bind:alt="content.category + ' icon'" v-bind:src="this.$root.$data.cdn + content.icon"/>
         </figure>
         <div class="item-content">
             <h3 v-html="content.title"></h3>
