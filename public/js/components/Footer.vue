@@ -2,12 +2,12 @@
     <footer class="main-container">
         <div class="row">
             <div class="col w-6">
-                <img class="footer-logo" src="/images/ma_portfolio_logo_footer.svg"/>
+                <img class="footer-logo" v-bind:src="this.$root.$data.cdn + '/images/ma_portfolio_logo_footer.svg'"/>
                 <div class="social-icons">
-                    <img src="/images/Twitter.svg"/>
-                    <img src="/images/Instagram.svg"/>
-                    <img src="/images/Medium.svg"/>
-                    <img src="/images/LinkedIn.svg"/>
+                    <img v-bind:src="this.$root.$data.cdn + '/images/Twitter.svg'"/>
+                    <img v-bind:src="this.$root.$data.cdn + '/images/Instagram.svg'"/>
+                    <img v-bind:src="this.$root.$data.cdn + '/images/Medium.svg'"/>
+                    <img v-bind:src="this.$root.$data.cdn + '/images/LinkedIn.svg'"/>
                 </div>
                 <div class="contact">
                     <p>
@@ -21,7 +21,7 @@
             <div class="col w-6">
                 <div class="row footer-aside">
                     <div class="col w-6 association-logo">
-                        <img src="/images/portfolio-PA_Member_Logo.svg"/>
+                        <img v-bind:src="this.$root.$data.cdn + '/images/portfolio-PA_Member_Logo.svg'"/>
 <!--                        <a href="https://services.acm.org/public/vcard/vcard.cfm?handle=markadkins">ACM Verification</a>-->
                     </div>
                     <div class="col w-6 copyright">

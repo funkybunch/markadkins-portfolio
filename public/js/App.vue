@@ -14,7 +14,7 @@
           hero: {
             theme: "light",
             class: "bellese",
-            brand: "/images/brands/bellese.svg",
+            brand: this.$root.$data.cdn + "/images/brands/bellese.svg",
             heroContent: "Bellese is a user-driven service design company in Baltimore that partners with civic services clients in the public and private sectors.",
             heroContentSubline: "2018 - Present"
           },

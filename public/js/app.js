@@ -41,7 +41,7 @@ Vue.directive('scrollvisible', {
 new Vue({
     el: '#app',
     data: {
-
+        cdn: "https://cdn.markadkins.design"
     },
     render: h => h(App)
 });
