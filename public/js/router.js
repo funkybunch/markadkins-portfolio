@@ -7,6 +7,7 @@
 import Vue from "vue"
 import Router from 'vue-router'
 const cdn = "https://cdn.markadkins.design"
+const titlePrefix = "Mark Adkins // "
 Vue.use(Router)
 
 // Components & Data
@@ -18,8 +19,11 @@ const ErrorTemplate = { template: '<h1>Error</h1>' }
 const routes = [
     {
         path: '/',
-        name: 'ExperienceBellese',
+        name: 'Home',
         component: ExperienceTemplate,
+        meta: {
+            title: titlePrefix + 'Home',
+        },
         props: {
             content: {
                 hero: {
@@ -56,5 +60,6 @@ export const router = new Router({
 })
 
 export const data = {
-    cdn
+    cdn,
+    titlePrefix
 }

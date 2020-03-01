@@ -42,6 +42,12 @@ Vue.directive('scrollvisible', {
     }
 })
 
+router.afterEach((to, from) => {
+    Vue.nextTick(() => {
+        document.title = to.meta.title || data.titlePrefix + "Senior Product Designer";
+    });
+});
+
 // Constructor
 const app = new Portfolio({
     el: '#app',
