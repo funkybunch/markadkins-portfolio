@@ -4,7 +4,10 @@ const { VueLoaderPlugin } = require('vue-loader');
 // webpack.config.js
 module.exports = {
     mode: "production",
-    entry: "./public/js/app.js",
+    entry: {
+        app: "./public/js/app.js",
+        error: "./public/js/error.js"
+    },
     module: {
         rules: [
             {
@@ -18,28 +21,7 @@ module.exports = {
     ],
     output: {
         path: path.resolve(__dirname, "public/js"),
-        filename: "app.min.js",
-        publicPath: "/js/"
-    }
-};
-// webpack.config.js
-module.exports = {
-    mode: "production",
-    entry: "./public/js/error.js",
-    module: {
-        rules: [
-            {
-                test: /\.vue$/,
-                use: 'vue-loader'
-            }
-        ]
-    },
-    plugins: [
-        new VueLoaderPlugin()
-    ],
-    output: {
-        path: path.resolve(__dirname, "public/js"),
-        filename: "error.min.js",
+        filename: "[name].min.js",
         publicPath: "/js/"
     }
 };
