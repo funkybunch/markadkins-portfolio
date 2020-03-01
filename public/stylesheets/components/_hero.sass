@@ -5,7 +5,11 @@ $hero-height: 635px
   height: $hero-height
   background: $white
   position: relative
-  z-index: -1
+  user-select: text
+  z-index: 1
+  .header-container
+    position: relative
+    z-index: 10
   .hero-container
     position: relative
     z-index: 10
@@ -16,12 +20,25 @@ $hero-height: 635px
       padding-bottom: 0
   .hero-content
     position: relative
+    user-select: text
+    z-index: 100
     p
       color: $white
       font-size: 24px
       font-weight: normal
       letter-spacing: 1.2px
       margin: $base-v-spacing/1.5 0
+      a
+        color: $white
+        text-decoration: underline
+        font-size: inherit
+      &.dark
+        color: $black
+        a
+          color: $black
+
+    h1
+      color: $white
       &.dark
         color: $black
 
@@ -31,9 +48,6 @@ $hero-height: 635px
       font-weight: 500
       &.dark
         color: $black
-
-    img
-      user-select: none
 
   .hero-image
     width: 100%
@@ -48,11 +62,19 @@ $hero-height: 635px
     background-repeat: no-repeat
     background-size: cover
     background-position: center top
-    opacity: 0.04
     z-index: 1
+    user-select: none
 
   &.bellese
     background: linear-gradient(-225deg, rgb(0, 45, 114) 0%, rgb(148, 39, 160) 100%)
     .hero-image
       @extend .hero-image
       background-image: url($cdn + '/images/bellese_hero.jpg')
+      opacity: 0.04
+
+  &.error
+    background: $black
+    .hero-image
+      @extend .hero-image
+      background-image: url($cdn + '/images/madkins-photography-milkyway.jpg')
+      opacity: 0.6

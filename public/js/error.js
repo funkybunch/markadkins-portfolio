@@ -7,7 +7,6 @@
 import Vue from 'vue'
 import ErrorView from './ErrorView.vue'
 import Clipboard from 'v-clipboard'
-import { data } from './router'
 const Error = Vue.extend(ErrorView)
 
 Vue.use(Clipboard)
@@ -47,7 +46,7 @@ const app = new Error({
     el: '#app',
     data() {
         return {
-            cdn: data.cdn
+            cdn: "https://cdn.markadkins.design"
         }
     }
 });
