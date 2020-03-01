@@ -8,6 +8,7 @@
                     <a href="https://instagram.com/markadkins" target="_blank"><img alt="Mark Adkins on Instagram" v-bind:src="this.$root.$data.cdn + '/images/Instagram.svg'"/></a>
                     <a href="https://medium.com/@markadkins" target="_blank"><img alt="Mark Adkins on Medium" v-bind:src="this.$root.$data.cdn + '/images/Medium.svg'"/></a>
                     <a href="https://linkedin.com/in/markadkn" target="_blank"><img alt="Mark Adkins on LinkedIn" v-bind:src="this.$root.$data.cdn + '/images/LinkedIn.svg'"/></a>
+                    <a href="https://github.com/funkybunch" target="_blank"><img alt="Mark Adkins on Github" v-bind:src="this.$root.$data.cdn + '/images/Github.svg'"/></a>
                 </div>
                 <div class="contact">
                     <p>
