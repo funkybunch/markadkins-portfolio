@@ -12,8 +12,8 @@ Vue.use(Router)
 
 // Components & Data
 import ExperienceTemplate from './templates/Experience.vue'
-import cardContentJSON from './data.json'
 const ErrorTemplate = { template: '<h1>Error</h1>' }
+
 
 // Router Configuration
 const routes = [
@@ -36,7 +36,6 @@ const routes = [
                 callout: {
                     title: "Work With Me",
                     type: "Postings",
-                    items: cardContentJSON.jobs,
                     modalAction: {
                         label: "Apply on Bellese Site",
                         callback: function() {
