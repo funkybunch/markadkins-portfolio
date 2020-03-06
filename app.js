@@ -111,7 +111,6 @@ function getBelleseJobs() {
         jobSource   = parseHTML.parse(body);
         try {
             postings = jobSource.querySelector('.toggles').childNodes;
-            console.log(postings);
             for(let i = 0; i < postings.length; i++) {
                 let position = postings[i].childNodes[0].childNodes[0].childNodes[1].rawText;
                 output[i] = {};
