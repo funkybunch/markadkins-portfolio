@@ -4,7 +4,7 @@
         <div class="main-container">
             <div class="row">
                 <div class="col w-6">
-                    <CalloutCard v-bind:content="content.callout" />
+                    <div id="card-container"></div>
                 </div>
                 <div class="col w-6">
                     <h2 class="bold">My Role</h2>
@@ -18,9 +18,12 @@
 </template>
 
 <script>
+    import Vue from 'vue'
     import Hero from '../components/Hero.vue'
     import Footer from '../components/Footer.vue'
     import CalloutCard from '../components/CalloutCard.vue'
+    import axios from 'axios'
+    const CalloutCore = Vue.extend(CalloutCard)
 
     export default {
         name: 'ExperienceTemplate',
@@ -29,6 +32,36 @@
             Hero,
             Footer,
             CalloutCard
+        },
+        data() {
+            return {
+                callout: this.$props.content.callout
+            }
+        },
+        methods: {
+            updateCardItems(obj) {
+                this.callout.items = obj;
+                this.callout.cdn = this.$root.$data.cdn;
+                const card = new CalloutCore({
+                    propsData: {
+                        content: this.callout
+                    }
+                });
+                card.$mount('#card-container');
+                console.log("Updated Card Items to: ", this.callout)
+            }
+        },
+        created() {
+            let self = this;
+            axios
+                .get('/js/data.json')
+                .then(function (response) {
+                    self.updateCardItems(response.data.jobs);
+                })
+                .catch(function (err) {
+                    console.log(err);
+                });
+
         }
     }
 </script>
