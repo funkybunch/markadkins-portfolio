@@ -48,7 +48,6 @@
                     }
                 });
                 card.$mount('#card-container');
-                console.log("Updated Card Items to: ", this.callout)
             }
         },
         created() {
