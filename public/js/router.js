@@ -36,6 +36,7 @@ const routes = [
                 callout: {
                     title: "Work With Me",
                     type: "Postings",
+                    items: {},
                     modalAction: {
                         label: "Apply on Bellese Site",
                         callback: function() {
