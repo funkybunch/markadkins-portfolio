@@ -40,7 +40,7 @@ const routes = [
                     modalAction: {
                         label: "Apply on Bellese Site",
                         callback: function() {
-                            window.open("https://bellese.io/careers", "_blank");
+                            window.open("https://bellese.io/careers/#apply", "_blank");
                         }
                     }
                 }
