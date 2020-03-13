@@ -1,7 +1,7 @@
 <template>
     <div v-bind:class="'callout-card-item ' + content.category ">
         <figure class="icon-container">
-            <img v-bind:alt="content.category + ' icon'" v-bind:src="this.$root.$data.cdn + content.icon"/>
+            <img v-bind:alt="content.category + ' icon'" v-bind:src="cdn + content.icon"/>
         </figure>
         <div class="item-content">
             <h3 v-html="content.title"></h3>
@@ -14,7 +14,7 @@
 <script>
     export default {
         name: 'CalloutCardItem',
-        props: ['content', 'actionTrigger'],
+        props: ['content', 'actionTrigger', 'cdn'],
         methods: {
             emitAction() {
                 this.$emit('update:actionTrigger', { triggered: true, item: this.$props.content });
