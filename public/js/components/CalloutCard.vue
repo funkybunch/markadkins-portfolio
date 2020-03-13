@@ -28,6 +28,7 @@
                         v-for="item in results"
                         v-bind:key="item.index"
                         v-bind:content="item"
+                        v-bind:cdn="content.cdn"
                         v-bind:action-trigger.sync="actionListener"
                 />
             </div>

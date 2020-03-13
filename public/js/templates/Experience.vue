@@ -3,7 +3,9 @@
         <Hero v-bind:content="content.hero" />
         <div class="main-container">
             <div class="row">
-                <div class="col w-6" id="card-container"></div>
+                <div class="col w-6">
+                    <div id="card-container"></div>
+                </div>
                 <div class="col w-6">
                     <h2 class="bold">My Role</h2>
                     <p>I work at Bellese as a <strong>User Experience Designer</strong> on a team of 9 other amazingly talented <strong>designers</strong> and <strong>researchers</strong>.</p>
@@ -16,6 +18,7 @@
 </template>
 
 <script>
+    import Vue from 'vue'
     import Hero from '../components/Hero.vue'
     import Footer from '../components/Footer.vue'
     import CalloutCard from '../components/CalloutCard.vue'
@@ -38,6 +41,7 @@
         methods: {
             updateCardItems(obj) {
                 this.callout.items = obj;
+                this.callout.cdn = this.$root.$data.cdn;
                 const card = new CalloutCore({
                     propsData: {
                         content: this.callout
