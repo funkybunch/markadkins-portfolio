@@ -709,6 +709,9 @@ aside.callout-card {
     background-color: #1A36BB;
     padding-left: 4px;
     border: none; }
+  .callout-card-item.other .icon-container {
+    background-color: #01a0cd;
+    border: none; }
   .callout-card-item .icon-container {
     display: flex;
     align-items: center;
