@@ -1,9 +1,16 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
+let path = require('path');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Mark Adkins // Senior Product Designer' });
+  res.sendFile(path.resolve(__dirname, '..') + '/public/index.html');
+});
+router.get('/experience/bellese', function(req, res, next) {
+  res.sendFile(path.resolve(__dirname, '..') + '/public/index.html');
+});
+router.get('/experience/accenture', function(req, res, next) {
+  res.sendFile(path.resolve(__dirname, '..') + '/public/index.html');
 });
 
 module.exports = router;

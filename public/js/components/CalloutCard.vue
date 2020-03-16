@@ -1,7 +1,7 @@
 <template>
     <aside class="callout-card">
         <h2>{{ content.title }}</h2>
-        <fieldset class="filter-button-group">
+        <fieldset v-if="categories.length > 0" class="filter-button-group">
             <legend class="sr-only">Job Opening Filter</legend>
             <span>
                 <input type="radio"
@@ -11,9 +11,8 @@
                        checked/>
                 <label for="category-filter-all">all</label>
             </span>
-                <span v-if="categories"
-                      v-for="category in categories"
-                      v-bind:key="category" >
+            <span v-for="category in categories"
+                  v-bind:key="category" >
                 <input type="radio"
                        name="categoryFilter"
                        v-on:click="filterResults(category)"
@@ -23,7 +22,7 @@
         </fieldset>
         <div class="results-container">
             <div class="results-content">
-                <p>{{ results.length }} {{ content.type }}</p>
+                <p v-if="categories.length > 0">{{ results.length }} {{ content.type }}</p>
                 <CalloutCardItem
                         v-for="item in results"
                         v-bind:key="item.index"
@@ -32,12 +31,13 @@
                         v-bind:action-trigger.sync="actionListener"
                 />
             </div>
-            <span v-if="categories && results.length > 3"
+            <span v-if="categories.length > 0 && results.length > 3"
                   v-on:click="scrollToEnd()"
                   v-bind:class="{ hidden: !showScrollIndicator }"
                   class="scroll-indicator"><i class="fal fa-arrow-down"></i> Scroll for more</span>
         </div>
-        <Modal v-bind:modal-visible.sync="modalVisible"
+        <Modal v-if="categories.length > 0"
+               v-bind:modal-visible.sync="modalVisible"
                v-bind:header.sync="modalHeader"
                v-bind:content.sync="modalContent"
                v-bind:action.sync="modalAction"
@@ -61,6 +61,7 @@
             container.addEventListener('scroll', this.onScroll);
             this.loadAllResults();
             this.loadCategories();
+            console.log(this.categories);
         },
         data() {
             return {
@@ -81,8 +82,10 @@
             },
             loadCategories(){
                 for(let i = 0; this.$props.content.items.length > i; i++){
-                    if(this.categories.indexOf(this.$props.content.items[i].category) === -1) {
-                        this.categories.push(this.$props.content.items[i].category);
+                    if(this.$props.content.items[i].category !== undefined){
+                        if(this.categories.indexOf(this.$props.content.items[i].category) === -1) {
+                            this.categories.push(this.$props.content.items[i].category);
+                        }
                     }
                 }
             },
