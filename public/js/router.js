@@ -11,9 +11,33 @@ const titlePrefix = "Mark Adkins // "
 Vue.use(Router)
 
 // Components & Data
+import Content from '../data/content.json'
 import ExperienceTemplate from './templates/Experience.vue'
 const ErrorTemplate = { template: '<h1>Error</h1>' }
 
+function setBelleseContent() {
+    let output = {};
+    output = Content.experience.bellese;
+    output.hero.brand = cdn + Content.experience.bellese.hero.brand;
+    output.callout.modalAction.callback = function() {
+        window.open("https://bellese.io/careers/#apply", "_blank");
+    }
+    return output;
+}
+
+function setAccentureContent() {
+    let output = {};
+    output = Content.experience.accenture;
+    output.hero.brand = cdn + Content.experience.accenture.hero.brand;
+    output.callout.modalAction.callback = function() {
+        return false;
+    }
+    return output;
+}
+
+let Experience = {};
+Experience.Bellese = setBelleseContent();
+Experience.Accenture = setAccentureContent();
 
 // Router Configuration
 const routes = [
@@ -25,26 +49,29 @@ const routes = [
             title: titlePrefix + 'Home',
         },
         props: {
-            content: {
-                hero: {
-                    theme: "light",
-                    class: "bellese",
-                    brand: cdn + "/images/brands/bellese.svg",
-                    heroContent: "Bellese is a user-driven service design company in Baltimore that partners with civic services clients in the public and private sectors.",
-                    heroContentSubline: "2018 - Present"
-                },
-                callout: {
-                    title: "Work With Me",
-                    type: "Postings",
-                    items: {},
-                    modalAction: {
-                        label: "Apply on Bellese Site",
-                        callback: function() {
-                            window.open("https://bellese.io/careers/#apply", "_blank");
-                        }
-                    }
-                }
-            }
+            content: Experience.Bellese
+        }
+    },
+    {
+        path: '/experience/bellese',
+        name: 'Experience - Bellese',
+        component: ExperienceTemplate,
+        meta: {
+            title: titlePrefix + 'Experience - Bellese',
+        },
+        props: {
+            content: Experience.Bellese
+        }
+    },
+    {
+        path: '/experience/accenture',
+        name: 'Experience - Accenture',
+        component: ExperienceTemplate,
+        meta: {
+            title: titlePrefix + 'Experience - Accenture',
+        },
+        props: {
+            content: Experience.Accenture
         }
     },
     {

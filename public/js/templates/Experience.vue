@@ -8,8 +8,7 @@
                 </div>
                 <div class="col w-6">
                     <h2 class="bold">My Role</h2>
-                    <p>I work at Bellese as a <strong>User Experience Designer</strong> on a team of 9 other amazingly talented <strong>designers</strong> and <strong>researchers</strong>.</p>
-                    <p>Together, we work with the U.S. Department of Health and Human Services Center for Medicare and Medicaid Services to improve the <strong>quality of healthcare</strong> for <strong>millions of Americans</strong>.</p>
+                    <div v-html="content.main.role"></div>
                 </div>
             </div>
         </div>
@@ -39,9 +38,10 @@
             }
         },
         methods: {
-            updateCardItems(obj) {
+            updateCardData(obj) {
                 this.callout.items = obj;
-                this.callout.cdn = this.$root.$data.cdn;
+            },
+            updateCardItems(){
                 const card = new CalloutCore({
                     propsData: {
                         content: this.callout
@@ -50,17 +50,30 @@
                 card.$mount('#card-container');
             }
         },
-        created() {
+        mounted() {
             let self = this;
-            axios
-                .get('/js/data.json')
-                .then(function (response) {
-                    self.updateCardItems(response.data.jobs);
-                })
-                .catch(function (err) {
-                    console.log(err);
-                });
-
+            this.callout.cdn = this.$root.$data.cdn;
+            if(Object.keys(this.callout.items).length === 0) {
+                axios
+                    .get('/js/data.json')
+                    .then(function(response) {
+                        if(self.$router.currentRoute.name === "Home"){
+                            self.updateCardData(response.data.jobs);
+                            self.updateCardItems();
+                        } else if(self.$router.currentRoute.name === "Experience - Bellese"){
+                            self.updateCardData(response.data.jobs);
+                            self.updateCardItems();
+                        } else {
+                            console.log("Callout data for route not found.");
+                        }
+                    })
+                    .catch(function(err) {
+                        console.log(err);
+                    });
+            } else {
+                // Callout object should include .items object for all other pages
+                self.updateCardItems();
+            }
         }
     }
 </script>

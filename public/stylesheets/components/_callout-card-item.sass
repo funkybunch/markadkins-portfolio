@@ -20,6 +20,10 @@
     overflow: hidden
     text-overflow: ellipsis
 
+    &.wrap
+      word-wrap: break-word
+      white-space: normal
+
   p
     margin: 0
 
@@ -36,6 +40,29 @@
     .icon-container
       background-color: $secondary-blue
       border: none
+
+  &.acn-green
+    .icon-container
+      background-color: #90bf42
+      border: none
+      img
+        margin-top: -4px
+  &.acn-dark-blue
+    .icon-container
+      background-color: #144577
+      border: none
+  &.acn-orange
+    .icon-container
+      background-color: #be6e13
+      padding-left: -4px
+      border: none
+      img
+        margin-top: -4px
+  &.acn-blue
+    .icon-container
+      background-color: #008fff
+      border: none
+
 
   .icon-container
     display: flex
