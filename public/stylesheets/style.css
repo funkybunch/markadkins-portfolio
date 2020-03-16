@@ -538,55 +538,6 @@ strong, b {
       padding: 0 16px;
       width: 100%; } }
 
-footer {
-  background-color: #1A36BB;
-  color: #FFFFFF;
-  width: 100%;
-  min-height: 228px; }
-  footer img.footer-logo {
-    width: 100%;
-    max-width: 195px;
-    height: auto; }
-  footer .social-icons {
-    width: 100%;
-    min-width: 164px; }
-    footer .social-icons img {
-      height: 18px;
-      width: auto;
-      margin: 12px 16px 16px 0; }
-  footer .footer-aside.row {
-    padding: 0;
-    margin-top: 16px; }
-  footer .footer-aside .association-logo {
-    text-align: right; }
-    footer .footer-aside .association-logo img {
-      width: 100%;
-      max-width: 180px;
-      height: auto; }
-  footer .footer-aside .copyright {
-    display: flex;
-    align-items: center; }
-    footer .footer-aside .copyright p {
-      font-size: 16px;
-      padding: 0;
-      line-height: 24px; }
-  footer p {
-    margin: 0; }
-
-@media all and (max-width: 991px) {
-  footer .footer-aside.row {
-    margin-top: 0; } }
-
-@media all and (max-width: 768px) {
-  footer .footer-aside .col {
-    padding: 0; }
-    footer .footer-aside .col.association-logo {
-      text-align: left; } }
-
-@media all and (max-width: 480px) {
-  footer .footer-aside.row {
-    margin-top: 64px; } }
-
 aside.callout-card {
   position: relative;
   width: 100%;
@@ -998,6 +949,60 @@ button {
     button.secondary:hover {
       background-color: #F1F1F1;
       border-color: #333333; }
+
+footer {
+  background-color: #1A36BB;
+  color: #FFFFFF;
+  width: 100%;
+  min-height: 228px; }
+  footer img.footer-logo {
+    width: 100%;
+    max-width: 195px;
+    height: auto; }
+  footer .social-icons {
+    width: 100%;
+    min-width: 164px; }
+    footer .social-icons img {
+      height: 18px;
+      width: auto;
+      margin: 12px 16px 16px 0; }
+  footer .contact p, footer .contact p > span {
+    font-size: 16px;
+    padding: 0;
+    line-height: 24px;
+    letter-spacing: 1px; }
+  footer .footer-aside.row {
+    padding: 0;
+    margin-top: 16px; }
+  footer .footer-aside .association-logo {
+    text-align: right; }
+    footer .footer-aside .association-logo img {
+      width: 100%;
+      max-width: 180px;
+      height: auto; }
+  footer .footer-aside .copyright {
+    display: flex;
+    align-items: center; }
+    footer .footer-aside .copyright p {
+      font-size: 16px;
+      padding: 0;
+      line-height: 24px; }
+  footer p {
+    margin: 0; }
+
+@media all and (max-width: 991px) {
+  footer .footer-aside.row {
+    margin-top: 0; } }
+
+@media all and (max-width: 768px) {
+  footer .footer-aside .col {
+    padding: 0; }
+    footer .footer-aside .col.association-logo {
+      text-align: left; } }
+
+@media all and (max-width: 480px) {
+  footer .footer-aside.row {
+    margin-top: 64px; } }
 
 * {
   font-family: 'Poppins', sans-serif;
