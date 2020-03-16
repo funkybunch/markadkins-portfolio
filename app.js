@@ -127,6 +127,7 @@ function getBelleseJobs() {
                     }
                 }
                 output[i].category = category;
+                output[i].class = category;
                 output[i].action = "View Description";
                 output[i].icon = '/images/icons/icon-' + category + '.svg';
             }
@@ -198,6 +199,8 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', spaRouter);
+app.use('/experience/bellese', spaRouter);
+app.use('/experience/accenture', spaRouter);
 app.use('*', errorRouter);
 
 module.exports = app;

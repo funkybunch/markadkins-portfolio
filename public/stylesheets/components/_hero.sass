@@ -72,6 +72,14 @@ $hero-height: 635px
       background-image: url($cdn + '/images/bellese_hero.jpg')
       opacity: 0.04
 
+  &.accenture
+    background: #008fff
+    .hero-image
+      @extend .hero-image
+      background-image: url($cdn + '/images/acn_hero.jpg')
+      background-position: center
+      opacity: 0.04
+
   &.error
     background: $black
     .hero-image

@@ -5,6 +5,7 @@
                 <a href="/"><img class="site-logo" alt="Mark Adkins Portfolio Logo" v-bind:src="this.$root.$data.cdn + '/images/ma_portfolio_logo_' + theme + '.svg'"/></a>
                 <div v-bind:class="'nav-container ' + theme">
 <!--                    <img class="nav-icon" v-bind:src="'/images/icons/nav_' + theme + '.svg'"/>-->
+<!--                    <span><router-link :to="{ name: 'Home'}">Experience</router-link></span>-->
                     <span>Senior Product Designer</span>
                 </div>
             </div>
