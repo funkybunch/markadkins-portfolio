@@ -12,5 +12,8 @@ router.get('/experience/bellese', function(req, res, next) {
 router.get('/experience/accenture', function(req, res, next) {
   res.sendFile(path.resolve(__dirname, '..') + '/public/index.html');
 });
+router.get('/experience/digikomp', function(req, res, next) {
+  res.sendFile(path.resolve(__dirname, '..') + '/public/index.html');
+});
 
 module.exports = router;
