@@ -201,6 +201,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', spaRouter);
 app.use('/experience/bellese', spaRouter);
 app.use('/experience/accenture', spaRouter);
+app.use('/experience/digikomp', spaRouter);
 app.use('*', errorRouter);
 
 module.exports = app;
