@@ -29,15 +29,20 @@ function setAccentureContent() {
     let output = {};
     output = Content.experience.accenture;
     output.hero.brand = cdn + Content.experience.accenture.hero.brand;
-    output.callout.modalAction.callback = function() {
-        return false;
-    }
+    return output;
+}
+
+function setDigikompContent() {
+    let output = {};
+    output = Content.experience.digikomp;
+    output.hero.brand = cdn + Content.experience.digikomp.hero.brand;
     return output;
 }
 
 let Experience = {};
 Experience.Bellese = setBelleseContent();
 Experience.Accenture = setAccentureContent();
+Experience.DigiKomp = setDigikompContent();
 
 // Router Configuration
 const routes = [
@@ -72,6 +77,17 @@ const routes = [
         },
         props: {
             content: Experience.Accenture
+        }
+    },
+    {
+        path: '/experience/digikomp',
+        name: 'Experience - DigiKomp',
+        component: ExperienceTemplate,
+        meta: {
+            title: titlePrefix + 'Experience - DigiKomp',
+        },
+        props: {
+            content: Experience.DigiKomp
         }
     },
     {
