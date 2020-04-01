@@ -103,6 +103,48 @@
       "main": {
         "role": "<p>At DigiKomp I was a <strong>Junior Product Design &amp; Developer</strong> working on corporate projects, primarily in the Digital Signage field.</p><p>When I started at DigiKomp I was self-taught in nearly everything pertaining to software design, and UX design was only beginning to emerge as an established field.  Nonetheless, I got to work on some cool projects.</p>"
       }
+    },
+    "tad": {
+      "hero": {
+        "theme": "light",
+        "class": "tad",
+        "brand": "/images/brands/tad.svg",
+        "heroContent": "Technology &amp; Design (TAD) is an internal creative agency within James Madison University’s University Unions.",
+        "heroContentSubline": "2015 - 2016"
+      },
+      "callout": {
+        "title": "What I worked on",
+        "type": "Works",
+        "items": [
+          {
+            "index": 0,
+            "class": "tad-blue",
+            "icon": "/images/icons/icon-screen.svg",
+            "name": "Cloud Signage Product Platform"
+          },
+          {
+            "index": 1,
+            "class": "tad-dark-blue",
+            "icon": "/images/icons/icon-browser.svg",
+            "name": "Corporate Website"
+          },
+          {
+            "index": 2,
+            "class": "tad-pink",
+            "icon": "/images/icons/icon-plug.svg",
+            "name": "Power Protection Sales Website"
+          },
+          {
+            "index": 3,
+            "class": "tad-green",
+            "icon": "/images/icons/icon-drone.svg",
+            "name": "Drone Sales Website"
+          }
+        ]
+      },
+      "main": {
+        "role": "<p>At DigiKomp I was a <strong>Junior Product Design &amp; Developer</strong> working on corporate projects, primarily in the Digital Signage field.</p><p>When I started at DigiKomp I was self-taught in nearly everything pertaining to software design, and UX design was only beginning to emerge as an established field.  Nonetheless, I got to work on some cool projects.</p>"
+      }
     }
   }
 }
