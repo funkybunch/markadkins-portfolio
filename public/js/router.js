@@ -39,12 +39,12 @@ function setDigikompContent() {
     return output;
 }
 
-function setTADContent() {
-    let output = {};
-    output = Content.experience.tad;
-    output.hero.brand = cdn + Content.experience.tad.hero.brand;
-    return output;
-}
+// function setTADContent() {
+//     let output = {};
+//     output = Content.experience.tad;
+//     output.hero.brand = cdn + Content.experience.tad.hero.brand;
+//     return output;
+// }
 
 let Experience = {};
 Experience.Bellese = setBelleseContent();

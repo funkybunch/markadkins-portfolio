@@ -202,7 +202,7 @@ app.use('/', spaRouter);
 app.use('/experience/bellese', spaRouter);
 app.use('/experience/accenture', spaRouter);
 app.use('/experience/digikomp', spaRouter);
-app.use('/experience/tad', spaRouter);
+// app.use('/experience/tad', spaRouter);
 app.use('*', errorRouter);
 
 module.exports = app;
