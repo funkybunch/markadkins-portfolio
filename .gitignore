@@ -10,3 +10,5 @@ data/*
 CONTENT.txt
 public/images/*
 public/js/*.json
+public/js/fontawesome.min.js
+public/js/light.min.js
