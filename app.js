@@ -104,7 +104,7 @@ function getBelleseJobs() {
     let parseError = false;
     let params = {
         design: ['design', 'research'],
-        engineering: ['engineer', 'developer', 'data', 'scientist', 'science']
+        engineering: ['engineer', 'developer', 'data', 'scientist', 'science', 'test', 'tester']
     };
 
     request({uri: "https://bellese.io/careers/"}, function(error, response, body) {
