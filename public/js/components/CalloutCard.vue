@@ -1,7 +1,7 @@
 <template>
-    <aside class="callout-card">
+    <aside class="callout-card" v-bind:class="['items-' + results.length, { filterable : hasCategories }]">
         <h2>{{ content.title }}</h2>
-        <fieldset v-if="categories.length > 0" class="filter-button-group">
+        <fieldset v-if="hasCategories" class="filter-button-group">
             <legend class="sr-only">Job Opening Filter</legend>
             <span>
                 <input type="radio"
@@ -22,7 +22,7 @@
         </fieldset>
         <div class="results-container">
             <div class="results-content">
-                <p v-if="categories.length > 0">{{ results.length }} {{ content.type }}</p>
+                <p v-if="hasCategories">{{ results.length }} {{ content.type }}</p>
                 <CalloutCardItem
                         v-for="item in results"
                         v-bind:key="item.index"
@@ -31,12 +31,12 @@
                         v-bind:action-trigger.sync="actionListener"
                 />
             </div>
-            <span v-if="categories.length > 0 && results.length > 3"
+            <span v-if="hasCategories && results.length > 3"
                   v-on:click="scrollToEnd()"
                   v-bind:class="{ hidden: !showScrollIndicator }"
                   class="scroll-indicator"><i class="fal fa-arrow-down"></i> Scroll for more</span>
         </div>
-        <Modal v-if="categories.length > 0"
+        <Modal v-if="hasCategories"
                v-bind:modal-visible.sync="modalVisible"
                v-bind:header.sync="modalHeader"
                v-bind:content.sync="modalContent"
@@ -66,6 +66,7 @@
         data() {
             return {
                 categories: [],
+                hasCategories: false,
                 results: [],
                 showScrollIndicator: true,
                 lastScrollPosition: 0,
@@ -87,6 +88,9 @@
                             this.categories.push(this.$props.content.items[i].category);
                         }
                     }
+                }
+                if(this.categories.length > 0) {
+                    this.hasCategories = true;
                 }
             },
             filterResults(category) {

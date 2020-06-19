@@ -95,5 +95,25 @@ aside.callout-card
         visibility: hidden
         opacity: 0
 
+@media all and (max-width:  $size-mobile)
+  aside.callout-card
+    padding: $base-v-spacing/2 $base-h-spacing 0 $base-h-spacing
+    margin-top: -68px
+    &.filterable
+      height: 576px
+    &.items-1.filterable
+      height: 330px
+    &.items-2.filterable
+      height: 453px
+    &:not(.filterable)
+      height: 572px
+      max-height: unset
+    &.items-1:not(.filterable)
+      height: 206px
+    &.items-2:not(.filterable)
+      height: 332px
+    &.items-3:not(.filterable)
+      height: 450px
+
 
 @import "callout-card-item"
