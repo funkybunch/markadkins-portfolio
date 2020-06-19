@@ -533,7 +533,8 @@ strong, b {
     flex-flow: col nowrap; }
   .col[class*="w-"] {
     width: 100%;
-    min-width: 298.816px; }
+    min-width: 298.816px;
+    margin-bottom: 32px; }
     .col[class*="w-"][class*="o-"] {
       padding: 0 16px;
       width: 100%; } }
@@ -631,6 +632,26 @@ aside.callout-card {
         visibility: hidden;
         opacity: 0; }
 
+@media all and (max-width: 480px) {
+  aside.callout-card {
+    padding: 12px 16px 0 16px;
+    margin-top: -68px; }
+    aside.callout-card.filterable {
+      height: 576px; }
+    aside.callout-card.items-1.filterable {
+      height: 330px; }
+    aside.callout-card.items-2.filterable {
+      height: 453px; }
+    aside.callout-card:not(.filterable) {
+      height: 572px;
+      max-height: unset; }
+    aside.callout-card.items-1:not(.filterable) {
+      height: 206px; }
+    aside.callout-card.items-2:not(.filterable) {
+      height: 332px; }
+    aside.callout-card.items-3:not(.filterable) {
+      height: 450px; } }
+
 .callout-card-item {
   border-radius: 12px;
   border: 3px solid rgba(79, 79, 79, 0.16);
@@ -715,6 +736,10 @@ aside.callout-card {
     min-width: 0;
     padding-right: 24px;
     box-sizing: border-box; }
+
+@media all and (max-width: 480px) {
+  .callout-card-item h3 {
+    font-size: 4vw; } }
 
 .copy-popover {
   position: relative;
@@ -942,6 +967,13 @@ aside.callout-card {
       .modal .modal-container .modal-body .modal-actions {
         margin-top: 32px; }
 
+@media all and (max-width: 480px) {
+  .modal .modal-container .modal-body {
+    padding: 24px 16px; }
+    .modal .modal-container .modal-body .close {
+      top: 24px;
+      right: 32px; } }
+
 button {
   padding: 12px 32px;
   margin-right: 16px;
@@ -967,6 +999,11 @@ button {
     button.secondary:hover {
       background-color: #F1F1F1;
       border-color: #333333; }
+
+@media all and (max-width: 480px) {
+  button {
+    width: 100%;
+    margin-bottom: 12px; } }
 
 footer {
   background-color: #1A36BB;

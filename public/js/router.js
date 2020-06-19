@@ -50,7 +50,7 @@ let Experience = {};
 Experience.Bellese = setBelleseContent();
 Experience.Accenture = setAccentureContent();
 Experience.DigiKomp = setDigikompContent();
-Experience.TAD = setTADContent();
+// Experience.TAD = setTADContent();
 
 // Router Configuration
 const routes = [
@@ -98,17 +98,17 @@ const routes = [
             content: Experience.DigiKomp
         }
     },
-    {
-        path: '/experience/tad',
-        name: 'Experience - TAD',
-        component: ExperienceTemplate,
-        meta: {
-            title: titlePrefix + 'Experience - TAD',
-        },
-        props: {
-            content: Experience.TAD
-        }
-    },
+    // {
+    //     path: '/experience/tad',
+    //     name: 'Experience - TAD',
+    //     component: ExperienceTemplate,
+    //     meta: {
+    //         title: titlePrefix + 'Experience - TAD',
+    //     },
+    //     props: {
+    //         content: Experience.TAD
+    //     }
+    // },
     {
         path: '/error',
         name: 'Error',

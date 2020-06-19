@@ -44,3 +44,12 @@
         cursor: pointer
       .modal-actions
         margin-top: $base-h-spacing*2
+
+@media all and (max-width:  $size-mobile)
+  .modal
+    .modal-container
+      .modal-body
+        padding: $base-v-spacing $base-h-spacing
+        .close
+          top: $base-v-spacing
+          right: $base-h-spacing*2
