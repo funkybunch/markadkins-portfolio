@@ -54,6 +54,7 @@ footer
       align-items: stretch
       a
         display: flex
+        flex-wrap: nowrap
         align-items: stretch
         position: relative
         cursor: pointer
@@ -119,20 +120,28 @@ footer
   p
     margin: 0
 
-@media all and (max-width: $size-tablet-large)
+@media all and (min-width: $size-tablet-small+1) and (max-width: $size-tablet-large)
   footer
     .footer-aside
       &.row
         margin-top: 0
-        justify-content: center
-        .col
-          &.nng
-            text-align: right
-            img
-              width: 123px
-          &.uxpa
+        a
+          flex-wrap: wrap
+          justify-content: center
+          width: calc(50% - 16px)
+          .col
+            display: flex
+            align-items: center
+            &.nng
+              text-align: right
+              img
+                width: 123px
+            &.uxpa
+              justify-content: center
+          &:last-child
             width: 100%
             text-align: center
+            margin-top: 12px
     .copyright
       &.row
         padding-left: 0px
@@ -142,21 +151,28 @@ footer
         p
           text-align: center
 
-@media all and (max-width: $size-tablet-small)
+@media all and (min-width: $size-mobile+1) and (max-width: $size-tablet-small)
   footer
     .footer-aside
       &.row
-        margin-top: $base-h-spacing * 2
+        margin-top: $base-h-spacing * 3
         justify-content: center
+        flex-wrap: nowrap
+        a
+          justify-content: center
+          align-items: center
         .col
           &.nng
             text-align: center
           &.uxpa
-            width: 33.33333%
+            width: unset
+          justify-content: center
+          width: 100%
           text-align: center
           padding-left: 12px
           padding-right: 12px
-          width: 33.33333%
+        &:last-child
+          width: unset
     .copyright
       &.row
         padding-left: 0px
@@ -174,15 +190,27 @@ footer
     .footer-aside
       text-align: left
       &.row
-        margin-top: $base-h-spacing*4
+        margin-top: $base-h-spacing*2
+        display: block
+        a
+          &:after
+            left: 0
+            width: 80%
+          &:before
+            right: 20%
+            top: calc(50% - 10px)
         .col
           &.nng
             text-align: unset
+            img
+              width: 123px
           &.uxpa
             text-align: unset
-            width: 100%
+            width: auto
+          margin-top: $base-h-spacing
+          display: inline-block
           text-align: left
-          width: 100%
+          width: auto
     .copyright
       text-align: left
       &.row
