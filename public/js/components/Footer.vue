@@ -21,19 +21,21 @@
             </div>
             <div class="col w-6">
                 <div class="row footer-aside">
-                    <div class="col w-4 sigchi">
-                        <a href="https://services.acm.org/public/vcard/vcard.cfm?handle=markadkins" target="_blank">
-                            <img alt="SIGCHI Logo" v-bind:src="this.$root.$data.cdn + '/images/sigchi-inverted.svg'"/>
-                        </a>
-                    </div>
-                    <div class="col w-4 nng">
-                        <a href="https://www.nngroup.com/ux-certification/verify/" target="_blank">
-                            <img alt="NNg Certification Logo" v-bind:src="this.$root.$data.cdn + '/images/nng-uxc-inverted.svg'"/>
-                        </a>
-                    </div>
-                    <div class="col w-4 uxpa">
-                        <img alt="UX Professional Association Logo" v-bind:src="this.$root.$data.cdn + '/images/portfolio-PA_Member_Logo.svg'"/>
-                    </div>
+                    <a href="https://services.acm.org/public/vcard/vcard.cfm?handle=markadkins" target="_blank">
+                        <div class="col sigchi">
+                            <img alt="ACM Special Interest Group for Computer-Human Interaction (SIGCHI) Member" v-bind:src="this.$root.$data.cdn + '/images/sigchi-inverted.svg'"/>
+                        </div>
+                    </a>
+                    <a href="https://www.nngroup.com/ux-certification/verify/" target="_blank">
+                        <div class="col nng">
+                            <img alt="Nielsen Norman Group UX Certified" v-bind:src="this.$root.$data.cdn + '/images/nng-uxc-inverted.svg'"/>
+                        </div>
+                    </a>
+                    <a href="https://uxpa.org/" target="_blank">
+                        <div class="col uxpa">
+                            <img alt="UX Professional Association (UXPA) International Member" v-bind:src="this.$root.$data.cdn + '/images/portfolio-PA_Member_Logo.svg'"/>
+                        </div>
+                    </a>
                 </div>
                 <div class="row copyright">
                     <div class="col w-12">
