@@ -21,12 +21,23 @@
             </div>
             <div class="col w-6">
                 <div class="row footer-aside">
-                    <div class="col w-6 association-logo">
-                        <img alt="Professional Association Logo" v-bind:src="this.$root.$data.cdn + '/images/portfolio-PA_Member_Logo.svg'"/>
-<!--                        <a href="https://services.acm.org/public/vcard/vcard.cfm?handle=markadkins">ACM Verification</a>-->
+                    <div class="col w-4 sigchi">
+                        <a href="https://services.acm.org/public/vcard/vcard.cfm?handle=markadkins" target="_blank">
+                            <img alt="SIGCHI Logo" v-bind:src="this.$root.$data.cdn + '/images/sigchi-inverted.svg'"/>
+                        </a>
                     </div>
-                    <div class="col w-6 copyright">
-                        <p>&copy;&nbsp;{{ new Date().getFullYear() }}&nbsp;Mark&nbsp;Adkins<br/>All&nbsp;Rights&nbsp;Reserved</p>
+                    <div class="col w-4 nng">
+                        <a href="https://www.nngroup.com/ux-certification/verify/" target="_blank">
+                            <img alt="NNg Certification Logo" v-bind:src="this.$root.$data.cdn + '/images/nng-uxc-inverted.svg'"/>
+                        </a>
+                    </div>
+                    <div class="col w-4 uxpa">
+                        <img alt="UX Professional Association Logo" v-bind:src="this.$root.$data.cdn + '/images/portfolio-PA_Member_Logo.svg'"/>
+                    </div>
+                </div>
+                <div class="row copyright">
+                    <div class="col w-12">
+                        <p>&copy;&nbsp;{{ new Date().getFullYear() }}&nbsp;Mark&nbsp;Adkins All&nbsp;Rights&nbsp;Reserved</p>
                     </div>
                 </div>
             </div>

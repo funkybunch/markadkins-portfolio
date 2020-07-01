@@ -1010,6 +1010,8 @@ footer {
   color: #FFFFFF;
   width: 100%;
   min-height: 228px; }
+  footer.main-container {
+    padding-bottom: 0; }
   footer img.footer-logo {
     width: 100%;
     max-width: 195px;
@@ -1027,37 +1029,86 @@ footer {
     line-height: 24px;
     letter-spacing: 1px; }
   footer .footer-aside.row {
-    padding: 0;
-    margin-top: 16px; }
-  footer .footer-aside .association-logo {
-    text-align: right; }
-    footer .footer-aside .association-logo img {
-      width: 100%;
-      max-width: 180px;
-      height: auto; }
-  footer .footer-aside .copyright {
     display: flex;
-    align-items: center; }
-    footer .footer-aside .copyright p {
+    align-items: center;
+    padding: 0;
+    margin-top: 0; }
+    footer .footer-aside.row .col {
+      text-align: right; }
+      footer .footer-aside.row .col.sigchi img {
+        width: 100%;
+        max-width: 180px;
+        height: auto; }
+      footer .footer-aside.row .col.nng img {
+        width: 100%;
+        height: auto;
+        max-height: 106px; }
+      footer .footer-aside.row .col.uxpa img {
+        width: 100%;
+        max-width: 180px;
+        height: auto; }
+  footer .copyright.row {
+    padding-right: 0;
+    padding-top: 12px; }
+    footer .copyright.row .col {
+      min-width: unset; }
+    footer .copyright.row p {
       font-size: 16px;
       padding: 0;
-      line-height: 24px; }
+      line-height: 24px;
+      text-align: right; }
   footer p {
     margin: 0; }
 
 @media all and (max-width: 991px) {
   footer .footer-aside.row {
-    margin-top: 0; } }
+    margin-top: 0;
+    justify-content: center; }
+    footer .footer-aside.row .col.nng {
+      text-align: right; }
+      footer .footer-aside.row .col.nng img {
+        width: 123px; }
+    footer .footer-aside.row .col.uxpa {
+      width: 100%;
+      text-align: center; }
+  footer .copyright.row {
+    padding-left: 0px;
+    padding-right: 0px; }
+    footer .copyright.row .col {
+      width: 100%; }
+    footer .copyright.row p {
+      text-align: center; } }
 
 @media all and (max-width: 768px) {
-  footer .footer-aside .col {
-    padding: 0; }
-    footer .footer-aside .col.association-logo {
-      text-align: left; } }
+  footer .footer-aside.row {
+    margin-top: 32px;
+    justify-content: center; }
+    footer .footer-aside.row .col {
+      text-align: center;
+      padding-left: 12px;
+      padding-right: 12px;
+      width: 33.33333%; }
+      footer .footer-aside.row .col.nng {
+        text-align: center; }
+      footer .footer-aside.row .col.uxpa {
+        width: 33.33333%; }
+  footer .copyright.row {
+    padding-left: 0px;
+    padding-right: 0px; }
+    footer .copyright.row .col {
+      width: 100%; }
+      footer .copyright.row .col p {
+        text-align: center; }
+  footer .col.w-6 {
+    width: 100%; } }
 
 @media all and (max-width: 480px) {
   footer .footer-aside.row {
-    margin-top: 64px; } }
+    margin-top: 64px; }
+  footer .copyright.row {
+    padding-bottom: 0; }
+    footer .copyright.row .col {
+      margin-bottom: 0px; } }
 
 * {
   font-family: 'Poppins', sans-serif;
