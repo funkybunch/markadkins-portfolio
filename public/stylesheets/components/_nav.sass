@@ -1,8 +1,14 @@
 .header-container
-  img.site-logo
-    display: block
-    user-select: none
-    margin-bottom: $base-v-spacing/3
+  a.site-logo
+    display: inline-block
+    height: $base-h-spacing * 2
+    img
+      display: block
+      user-select: none
+      margin-bottom: $base-v-spacing/3
+    &:focus
+      outline: $white solid 4px
+      outline-offset: 4px
 
   .nav-container
     display: flex

@@ -45,11 +45,14 @@ aside.callout-card
 
     input[type=radio]
       position: absolute
-      visibility: hidden
+      opacity: 0
       &:checked + label
         background-color: $black
         border-color: $black
         color: $white
+      &:focus + label
+        outline: $primary-blue solid 4px
+        outline-offset: 4px
 
   .results-container
     display: flex

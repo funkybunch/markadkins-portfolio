@@ -10,6 +10,9 @@ button
   cursor: pointer
   box-sizing: border-box
   transition: all 250ms cubic-bezier(.43,.36,.44,.93)
+  &:focus
+    outline: $primary-blue solid 4px
+    outline-offset: 4px
   &.primary
     background-color: $primary-blue
     border-color: $primary-blue

@@ -9,9 +9,11 @@ import AppView from './AppView.vue'
 import Clipboard from 'v-clipboard'
 import { router, data } from './router'
 const Portfolio = Vue.extend(AppView)
+import VueAnnouncer from 'vue-announcer'
 import '../stylesheets/style.sass'
 
 Vue.use(Clipboard)
+Vue.use(VueAnnouncer)
 require("./analytics")
 
 //Directives

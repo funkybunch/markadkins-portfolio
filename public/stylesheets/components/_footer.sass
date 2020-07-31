@@ -16,6 +16,9 @@ footer
       display: inline-block
       position: relative
       cursor: pointer
+      &:focus
+        outline: $white solid 4px
+        outline-offset: 0px
       img
         transition: all 250ms cubic-bezier(.43,.36,.44,.93)
       &:after
@@ -58,6 +61,9 @@ footer
         align-items: stretch
         position: relative
         cursor: pointer
+        &:focus
+          outline: $white solid 4px
+          outline-offset: 4px
         img
           transition: all 250ms cubic-bezier(.43,.36,.44,.93)
         &:after

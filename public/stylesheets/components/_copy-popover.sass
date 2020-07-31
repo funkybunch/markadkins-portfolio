@@ -3,6 +3,15 @@
   display: inline-block
   cursor: pointer
 
+  button
+    background-color: transparent
+    border-width: 0
+    padding: 0
+    color: $white
+    &:focus
+      outline: $white solid 4px
+      outline-offset: 2px
+
   .fa
     display: inline
 
@@ -41,6 +50,10 @@
       border-style: solid
       border-color: transparent $white transparent transparent
 
+  &.override span
+    visibility: visible
+    opacity: 1
+
   &:hover span
     visibility: visible
     opacity: 1
@@ -49,6 +62,14 @@
     span
       animation: toggle-popover-after-scroll 5s
       animation-delay: 500ms
+  &.sr-only:not(:focus):not(:active)
+    clip: rect(0 0 0 0)
+    clip-path: inset(50%)
+    height: 1px
+    overflow: hidden
+    position: absolute
+    white-space: nowrap
+    width: 1px
 
 @keyframes toggle-popover-after-scroll
   0%

@@ -6,7 +6,12 @@
         <div class="item-content">
             <h3 v-if="content.title" v-html="content.title"></h3>
             <h3 v-if="content.name" class="wrap" v-html="content.name"></h3>
-            <a v-if="content.action" v-on:click.prevent="emitAction">{{ content.action }}</a>
+            <a v-if="content.action"
+               v-on:click.prevent="emitAction"
+               v-on:keyup.enter="emitAction"
+               v-on:keyup.space="emitAction"
+               tabindex="0"
+               role="button" >{{ content.action }}</a>
             <p v-if="content.subtitle">{{ content.subtitle }}</p>
         </div>
     </div>

@@ -5,7 +5,16 @@
             <div class="modal-body">
                 <div class="modal-header">
                     <h1 v-html="header"></h1>
-                    <span class="close" v-on:click="closeModal" role="button"><i class="fal fa-times"></i></span>
+                    <button class="close"
+                          ref="modalCloseBtn"
+                          v-on:click="closeModal"
+                          v-on:enter="closeModal"
+                          v-on:space="closeModal"
+                          role="button"
+                          aria-label="Close"
+                          tabindex="0">
+                      <i class="fal fa-times"></i>
+                    </button>
                     <div class="modal-content" v-html="content"></div>
                     <div class="modal-actions">
                         <button v-if="action" class="primary" v-on:click="action.callback">{{ action.label }}</button>
@@ -23,6 +32,7 @@
         methods: {
             openModal() {
                 this.$emit('update:modalVisible', true);
+                this.$nextTick(() => this.$refs.modalCloseBtn.focus());
             },
             closeModal() {
                 this.$emit('update:modalVisible', false);
