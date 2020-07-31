@@ -102,6 +102,11 @@
     min-width: 0
     padding-right: $base-v-spacing
     box-sizing: border-box
+    a
+      display: inline-block
+      &:focus
+        outline: $primary-blue solid 4px
+        outline-offset: 2px
 
 @media all and (max-width:  $size-mobile)
   .callout-card-item

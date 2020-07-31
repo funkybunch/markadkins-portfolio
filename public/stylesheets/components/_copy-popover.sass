@@ -3,6 +3,15 @@
   display: inline-block
   cursor: pointer
 
+  button
+    background-color: transparent
+    border-width: 0
+    padding: 0
+    color: $white
+    &:focus
+      outline: $white solid 4px
+      outline-offset: 2px
+
   .fa
     display: inline
 
@@ -40,6 +49,10 @@
       border-width: 5px
       border-style: solid
       border-color: transparent $white transparent transparent
+
+  &.override span
+    visibility: visible
+    opacity: 1
 
   &:hover span
     visibility: visible

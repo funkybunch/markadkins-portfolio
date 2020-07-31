@@ -7,6 +7,8 @@
                 <input type="radio"
                        name="categoryFilter"
                        v-on:click="loadAllResults"
+                       tabindex="0"
+                       role="radio"
                        id="category-filter-all"
                        checked/>
                 <label for="category-filter-all">all</label>
@@ -16,6 +18,8 @@
                 <input type="radio"
                        name="categoryFilter"
                        v-on:click="filterResults(category)"
+                       tabindex="0"
+                       role="radio"
                        v-bind:id="'category-filter-' + category">
                 <label v-bind:for="'category-filter-' + category">{{ category }}</label>
             </span>
