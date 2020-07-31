@@ -62,6 +62,14 @@
     span
       animation: toggle-popover-after-scroll 5s
       animation-delay: 500ms
+  &.sr-only:not(:focus):not(:active)
+    clip: rect(0 0 0 0)
+    clip-path: inset(50%)
+    height: 1px
+    overflow: hidden
+    position: absolute
+    white-space: nowrap
+    width: 1px
 
 @keyframes toggle-popover-after-scroll
   0%
