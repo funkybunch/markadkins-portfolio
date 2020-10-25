@@ -13,7 +13,7 @@ Vue.use(Router)
 // Components & Data
 import Content from './content.json'
 import ExperienceTemplate from './templates/Experience.vue'
-const ErrorTemplate = { template: '<h1>Error</h1>' }
+import ErrorTemplate from './templates/Error.vue'
 
 function setBelleseContent() {
     let output = {};
