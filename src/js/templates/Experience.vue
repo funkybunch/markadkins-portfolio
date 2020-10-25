@@ -55,13 +55,13 @@
             this.callout.cdn = this.$root.$data.cdn;
             if(Object.keys(this.callout.items).length === 0) {
                 axios
-                    .get('/js/data.json')
+                    .get('https://markadkins-portfolio-api-ysslq.ondigitalocean.app/v1/jobs/')
                     .then(function(response) {
                         if(self.$router.currentRoute.name === "Home"){
-                            self.updateCardData(response.data.jobs);
+                            self.updateCardData(response.data);
                             self.updateCardItems();
                         } else if(self.$router.currentRoute.name === "Experience - Bellese"){
-                            self.updateCardData(response.data.jobs);
+                            self.updateCardData(response.data);
                             self.updateCardItems();
                         } else {
                             console.log("Callout data for route not found.");
