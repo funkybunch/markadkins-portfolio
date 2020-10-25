@@ -11,7 +11,7 @@ const titlePrefix = "Mark Adkins // "
 Vue.use(Router)
 
 // Components & Data
-import Content from '../data/content.json'
+import Content from './content.json'
 import ExperienceTemplate from './templates/Experience.vue'
 const ErrorTemplate = { template: '<h1>Error</h1>' }
 
