@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="banner">
+    <div class="banner" v-if="timeToVote">
       <div class="main-container">
         <div class="row">
           <div class="col w-12">
@@ -18,6 +18,11 @@
 
   export default {
     name: 'AppView',
+    data() {
+      return {
+        timeToVote: false
+      }
+    },
     watch: {
       $route(to, from) {
         document.title = to.meta.title || 'Your Website'

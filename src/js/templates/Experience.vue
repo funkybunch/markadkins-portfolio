@@ -55,7 +55,7 @@
             this.callout.cdn = this.$root.$data.cdn;
             if(Object.keys(this.callout.items).length === 0) {
                 axios
-                    .get('https://markadkins-portfolio-api-ysslq.ondigitalocean.app/v1/jobs/')
+                    .get('https://api.markadkins.design/v1/jobs/')
                     .then(function(response) {
                         if(self.$router.currentRoute.name === "Home"){
                             self.updateCardData(response.data);
