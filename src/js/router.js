@@ -13,14 +13,15 @@ Vue.use(Router)
 // Components & Data
 import Content from './content.json'
 import ExperienceTemplate from './templates/Experience.vue'
+import EducationTemplate from './templates/Education.vue'
 import ErrorTemplate from './templates/Error.vue'
 
 function setBelleseContent() {
     let output = {};
     output = Content.experience.bellese;
     output.hero.brand = cdn + Content.experience.bellese.hero.brand;
-    output.callout.modalAction.callback = function() {
-        window.open("https://bellese.io/careers/#apply", "_blank");
+    output.callout.modalAction.callback = function(location) {
+        window.open(location, "_blank");
     }
     return output;
 }
@@ -36,6 +37,13 @@ function setDigikompContent() {
     let output = {};
     output = Content.experience.digikomp;
     output.hero.brand = cdn + Content.experience.digikomp.hero.brand;
+    return output;
+}
+
+function setContent(content) {
+    let output = {};
+    output = content;
+    output.hero.brand = cdn + content.hero.brand;
     return output;
 }
 
@@ -109,6 +117,28 @@ const routes = [
     //         content: Experience.TAD
     //     }
     // },
+    {
+        path: '/education/jmu',
+        name: 'Education - James Madison University',
+        component: EducationTemplate,
+        meta: {
+            title: titlePrefix + 'Education - James Madison University',
+        },
+        props: {
+            content: setContent(Content.education.JMU)
+        }
+    },
+    {
+        path: '/education/gatech',
+        name: 'Education - Georgia Institute of Technology',
+        component: EducationTemplate,
+        meta: {
+            title: titlePrefix + 'Education - Georgia Institute of Technology',
+        },
+        props: {
+            content: setContent(Content.education.GATech)
+        }
+    },
     {
         path: '/error',
         name: 'Error',

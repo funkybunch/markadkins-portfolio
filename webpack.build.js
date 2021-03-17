@@ -9,7 +9,7 @@ const args = process.argv.slice(2);
 const localContentFile = './src/js/content.json';
 const startBuild = async () => {
     try {
-        return await axios.get('https://markadkins-portfolio-api-ysslq.ondigitalocean.app/v1/content');
+        return await axios.get(process.env.CMS);
     } catch (error) {
         console.log("Failed to fetch content.  Check API health.");
         process.exit(1);

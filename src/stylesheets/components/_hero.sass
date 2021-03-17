@@ -22,6 +22,7 @@ $hero-height: 635px
     position: relative
     user-select: text
     z-index: 100
+    margin-top: $base-v-spacing
     p
       color: $white
       font-size: 24px
@@ -65,17 +66,22 @@ $hero-height: 635px
     z-index: 1
     user-select: none
 
+  &.education
+    .hero-content
+      img
+        width: auto
+        height: 100%
+        max-width: 540px
+        max-height: 120px
   &.bellese
     background: linear-gradient(-225deg, rgb(0, 45, 114) 0%, rgb(148, 39, 160) 100%)
     .hero-image
-      @extend .hero-image
       background-image: url($cdn + '/images/bellese_hero.jpg')
       opacity: 0.04
 
   &.accenture
     background: #008fff
     .hero-image
-      @extend .hero-image
       background-image: url($cdn + '/images/acn_hero.jpg')
       background-position: center
       opacity: 0.04
@@ -83,9 +89,22 @@ $hero-height: 635px
   &.digikomp
     background: #0b307b
     .hero-image
-      @extend .hero-image
       background-image: url($cdn + '/images/digikomp_hero.jpg')
       background-position: bottom left
+      opacity: 0.04
+
+  &.jmu
+    background: #450084
+    .hero-image
+      background-image: url($cdn + '/images/madkins_photo_jmu.jpg')
+      background-position: top right
+      opacity: 0.04
+
+  &.gatech
+    background: #DAD0AC
+    .hero-image
+      background-image: url($cdn + '/images/gatech-bkg.jpg')
+      background-position: center
       opacity: 0.04
 
   &.error
@@ -94,3 +113,10 @@ $hero-height: 635px
       @extend .hero-image
       background-image: url($cdn + '/images/madkins-photography-milkyway.jpg')
       opacity: 0.6
+
+@media all and (max-width:  605px)
+  .hero
+    &.education
+      .hero-content
+        img
+          max-width: 100%

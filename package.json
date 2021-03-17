@@ -7,10 +7,10 @@
     "start:dev": "node webpack.build.js --dev",
     "build": "node webpack.build.js",
     "compile": "webpack -p --config webpack.config.js",
-    "compile:serve": "webpack-dev-server --hot --host 0.0.0.0 --config webpack.config.js"
+    "compile:serve": "webpack-dev-server --hot --host 0.0.0.0 --mode=development --config webpack.config.js"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "cookie-parser": "^1.4.5",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
@@ -41,6 +41,6 @@
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.2"
   }
 }
