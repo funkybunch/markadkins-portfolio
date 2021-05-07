@@ -6,7 +6,7 @@
                 <div v-bind:class="'nav-container ' + theme">
 <!--                    <img class="nav-icon" v-bind:src="'/images/icons/nav_' + theme + '.svg'"/>-->
 <!--                    <span><router-link :to="{ name: 'Home'}">Experience</router-link></span>-->
-                    <span>Senior Product Designer</span>
+                    <span>Senior Human-Centered Designer</span>
                 </div>
             </div>
         </div>
