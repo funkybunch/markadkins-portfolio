@@ -53,8 +53,8 @@
         name: 'Footer',
         data() {
             return {
-                copyPopoverContent: 'hello<i class="fal fa-at"></i>bymark.co',
-                copyClipboardValue: 'hello@bymark.co'
+                copyPopoverContent: 'hello<i class="fal fa-at"></i>markadkins.design',
+                copyClipboardValue: 'hello@markadkins.design'
             }
         },
         components: {
