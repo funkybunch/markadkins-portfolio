@@ -15,6 +15,7 @@ import Content from './content.json'
 import ExperienceTemplate from './templates/Experience.vue'
 import EducationTemplate from './templates/Education.vue'
 import ErrorTemplate from './templates/Error.vue'
+import JobStats from './templates/JobStats.vue'
 
 function setBelleseContent() {
     let output = {};
@@ -138,6 +139,14 @@ const routes = [
         props: {
             content: setContent(Content.education.GATech)
         }
+    },
+    {
+        path: '/jobs/stats',
+        name: 'Job Application Statistics',
+        component: JobStats,
+        meta: {
+            title: titlePrefix + 'Job Application Statistics',
+        },
     },
     {
         path: '/error',
