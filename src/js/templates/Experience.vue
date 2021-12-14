@@ -1,6 +1,6 @@
 <template>
     <div class="app-container">
-        <Hero v-bind:content="content.hero" />
+        <Hero :content="content.hero" />
         <div class="main-container">
             <div class="row">
                 <div class="col w-6">
@@ -72,7 +72,10 @@
                         console.log(err);
                     });
             } else {
-                // Callout object should include .items object for all other pages
+                this.updateCardData({
+                  items: self.content.callout[0].callout_list_item,
+                  title: self.content.callout[0].title
+                });
                 self.updateCardItems();
             }
         }

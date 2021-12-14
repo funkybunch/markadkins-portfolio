@@ -1,11 +1,11 @@
 <template>
     <div class="app-container">
-        <Hero classes="education" v-bind:content="content.hero" />
+        <Hero classes="education" :content="content.hero" />
         <div class="main-container">
-            <div class="row">
+            <div class="row reverse-stack">
                 <div class="col w-6">
-                    <h2 class="bold">{{ content.main.title }}</h2>
-                    <div v-html="content.main.description"></div>
+                    <h2 class="bold">{{ content.content_block[0].title }}</h2>
+                    <div v-html="$options.filters.markdown(content.content_block[0].description)"></div>
                 </div>
                 <div class="col w-6">
                     <div id="card-container"></div>
@@ -13,8 +13,8 @@
             </div>
             <div class="row">
                 <div class="col w-12">
-                    <h3>{{ content.main.subtitle }}</h3>
-                    <div v-html="content.main.body"></div>
+                    <h3>{{ content.content_block[0].subtitle }}</h3>
+                    <div v-html="$options.filters.markdown(content.content_block[0].body)"></div>
                 </div>
             </div>
         </div>
@@ -45,7 +45,7 @@
         },
         methods: {
             updateCardData(obj) {
-                this.callout.items = obj;
+                this.callout = obj;
             },
             updateCardItems(){
                 const card = new CalloutCore({
@@ -59,27 +59,11 @@
         mounted() {
             let self = this;
             this.callout.cdn = this.$root.$data.cdn;
-            if(Object.keys(this.callout.items).length === 0) {
-                axios
-                    .get('https://api.markadkins.design/v1/jobs/')
-                    .then(function(response) {
-                        if(self.$router.currentRoute.name === "Home"){
-                            self.updateCardData(response.data);
-                            self.updateCardItems();
-                        } else if(self.$router.currentRoute.name === "Experience - Bellese"){
-                            self.updateCardData(response.data);
-                            self.updateCardItems();
-                        } else {
-                            console.log("Callout data for route not found.");
-                        }
-                    })
-                    .catch(function(err) {
-                        console.log(err);
-                    });
-            } else {
-                // Callout object should include .items object for all other pages
-                self.updateCardItems();
-            }
+            this.updateCardData({
+              items: self.content.callout[0].callout_list_item,
+              title: self.content.callout[0].title
+            });
+            self.updateCardItems();
         }
     }
 </script>

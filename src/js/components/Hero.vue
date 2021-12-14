@@ -1,7 +1,9 @@
 <template>
     <div v-bind:class="'hero ' + ((content.classes === undefined)? '' : content.classes)">
         <div class="hero-image"
+             v-if="content.background && content.background.url"
              :style="'background-image:url(' + content.background.url + ')'"></div>
+        <div class="hero-image" v-else></div>
         <Nav v-bind:theme="content.theme"/>
         <div class="hero-container">
             <div class="row">

@@ -106,16 +106,20 @@ $hero-height: 635px
       background-position: top right
       opacity: 0.04
 
-  &.gatech
+  &.ga_tech
     background: #DAD0AC
     .hero-image
       background-position: center
       opacity: 0.04
+    .hero-content
+      img
+        max-width: 300px
 
   &.error
     background: $black
     .hero-image
       @extend .hero-image
+      background-image: url("https://cdn.markadkins.design/images/madkins-photography-milkyway.jpg")
       opacity: 0.6
 
 @media all and (max-width:  605px)
@@ -124,3 +128,7 @@ $hero-height: 635px
       .hero-content
         img
           max-width: 100%
+    &.error
+      height: auto
+      .hero-image
+        max-height: 100%

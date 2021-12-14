@@ -8,6 +8,7 @@ import Vue from "vue"
 import Router from 'vue-router'
 const cdn = "https://cdn.markadkins.design"
 const titlePrefix = "Mark Adkins // "
+const currentCompany = "Gecko Robotics"
 Vue.use(Router)
 
 // Components & Data
@@ -27,27 +28,29 @@ const OPTIONS = {
     }
 }
 
-function getContent(type, entity, current = false) {
+function getContent(type, entity) {
     let output = {};
     let index;
+    let current = (currentCompany.toLowerCase() === entity.replace(/-/g," ").toLowerCase());
     for(let i = 0; Content[type.label].length > i; i++) {
+        // console.log("comparing", Content[type.label][i][type.matchOn].toLowerCase(), "to", entity.replace(/-/g," ").toLowerCase())
         if(Content[type.label][i][type.matchOn].toLowerCase() === entity.replace(/-/g," ").toLowerCase()) {
             index = i;
             break;
         }
     }
     try {
-        output = Content[type.label][index];
-        output.hero.brand = Content[type.label][index].hero.brand.url;
-        output.hero.classes = Content[type.label][index].hero.title.replace(/ /g,"_").toLowerCase();
-        output.callout = Content[type.label][index].Callout;
+        output = JSON.parse(JSON.stringify(Content[type.label][index]));
+        output.hero.brand = JSON.parse(JSON.stringify(Content[type.label][index].hero.brand.url));
+        output.hero.classes = JSON.parse(JSON.stringify(Content[type.label][index].hero.title.replace(/ /g,"_").toLowerCase()));
+        output.callout = JSON.parse(JSON.stringify(Content[type.label][index].Callout));
         output.calloutCurrent = current;
         delete output.Callout;
         output.modalAction = {
             callback: function(location) {
                 window.open(location, "_blank");
             },
-            footer: "Clicking the &quot;Apply&quot; button will open up a new tab with the job application on the " + output.hero.title + " website.",
+            footer: "Clicking the &quot;Apply&quot; button will open up a new tab with the job application on the " + output.company + " website.",
             label: "Apply"
         };
         output.cdn = cdn;
@@ -55,6 +58,7 @@ function getContent(type, entity, current = false) {
     } catch(e) {
         console.error("Invalid entity name:", entity);
         console.error(e);
+        return null;
     }
 }
 
@@ -68,7 +72,7 @@ const routes = [
             title: titlePrefix + 'Home',
         },
         props: {
-            content: getContent(OPTIONS.EXPERIENCE, "Gecko Robotics", true)
+            content: getContent(OPTIONS.EXPERIENCE, currentCompany)
         }
     },
     {
@@ -88,14 +92,14 @@ const routes = [
             title: titlePrefix + 'Education - ' + route.params.institution.replace(/-/g," "),
         }),
         props: (route) => ({
-            content: getContent(OPTIONS.EXPERIENCE, route.params.institution)
+            content: getContent(OPTIONS.EDUCATION, route.params.institution)
         })
     },
     {
-        path: '/error',
-        name: 'Error',
-        alias: '*',
-        component: ErrorTemplate }
+        path: '*',
+        name: 'error',
+        component: ErrorTemplate
+    }
 ]
 
 export const router = new Router({
