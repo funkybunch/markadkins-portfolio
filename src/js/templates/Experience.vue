@@ -54,7 +54,7 @@
             let self = this;
             if(this.content.callout[0].applicant_tracking_system) {
                 axios
-                    .get('http://localhost:3001/v1/jobs/')
+                    .get('https://api.markadkins.design/v1/jobs/')
                     .then(function(response) {
                         self.updateCardData({
                           type: "Postings",
