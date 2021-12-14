@@ -60,7 +60,8 @@
                           type: "Postings",
                           items: response.data[self.content.callout[0].applicant_tracking_system.company_slug],
                           title: "Work With Me",
-                          cdn: self.content.cdn
+                          cdn: self.content.cdn,
+                          modalAction: self.content.modalAction
                         });
                         self.updateCardItems();
                     })

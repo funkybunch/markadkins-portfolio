@@ -17,7 +17,7 @@
                     </button>
                     <div class="modal-content" v-html="content"></div>
                     <div class="modal-actions">
-                        <button v-if="action" class="primary" v-on:click="action.callback">{{ action.label }}</button>
+                        <button v-if="action" class="primary" v-on:click="action.callback(actionData)">{{ action.label }}</button>
                         <button class="secondary" v-on:click="closeModal">Close</button>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
 <script>
     export default {
         name: 'Nav',
-        props: ['modalVisible', 'header', 'content', 'action'],
+        props: ['modalVisible', 'header', 'content', 'action', 'actionData'],
         methods: {
             openModal() {
                 this.$emit('update:modalVisible', true);

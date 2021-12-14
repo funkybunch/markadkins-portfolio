@@ -45,6 +45,7 @@
                v-bind:header.sync="modalHeader"
                v-bind:content.sync="modalContent"
                v-bind:action.sync="modalAction"
+               v-bind:action-data.sync="modalActionData"
         />
     </aside>
 </template>
@@ -65,7 +66,6 @@
             container.addEventListener('scroll', this.onScroll);
             this.loadAllResults();
             this.loadCategories();
-            console.log(this.categories);
         },
         data() {
             return {
@@ -78,6 +78,7 @@
                 modalHeader: "",
                 modalContent: "",
                 modalAction: this.$props.content.modalAction,
+                modalActionData: "",
                 actionListener: { triggered: false, item: null }
             }
         },
@@ -122,12 +123,13 @@
                     return
                 }
                 this.showScrollIndicator = currentScrollPosition < this.lastScrollPosition;
-                this.lastScrollPosition = currentScrollPosition
+                this.lastScrollPosition = currentScrollPosition;
             },
             showModal(item) {
                 this.$data.modalVisible = true;
                 this.$data.modalHeader = item.title;
                 this.$data.modalContent = item.description;
+                this.$data.modalActionData = item.link;
             }
         },
         watch: {

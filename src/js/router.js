@@ -42,10 +42,12 @@ function getContent(type, entity) {
         output.hero.classes = Content[type.label][index].hero.title.replace(/ /g,"_").toLowerCase();
         output.callout = Content[type.label][index].Callout;
         delete output.Callout;
-        output.callout.modalAction = {};
-        output.callout.modalAction.callback = function(location) {
-            window.open(location, "_blank");
-        }
+        output.modalAction = {
+            callback: function(location) {
+                window.open(location, "_blank");
+            },
+            label: "Apply"
+        };
         output.cdn = cdn;
         return output;
     } catch(e) {
