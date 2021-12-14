@@ -56,10 +56,13 @@
                 axios
                     .get('https://api.markadkins.design/v1/jobs/')
                     .then(function(response) {
+                        let title = (self.content.calloutCurrent) ? 'Work With Me' : 'Work At ' + self.content.hero.title;
+                        let subtitle = (!self.content.calloutCurrent) ? "I don't work here anymore, but I loved my time at " + self.content.hero.title + ".  Great people and a great place to work.  Let me know if you'd like me to connect you." : '';
                         self.updateCardData({
                           type: "Postings",
                           items: response.data[self.content.callout[0].applicant_tracking_system.company_slug],
-                          title: "Work With Me",
+                          title: title,
+                          subtitle: subtitle,
                           cdn: self.content.cdn,
                           modalAction: self.content.modalAction
                         });

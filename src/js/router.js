@@ -27,7 +27,7 @@ const OPTIONS = {
     }
 }
 
-function getContent(type, entity) {
+function getContent(type, entity, current = false) {
     let output = {};
     let index;
     for(let i = 0; Content[type.label].length > i; i++) {
@@ -41,11 +41,13 @@ function getContent(type, entity) {
         output.hero.brand = Content[type.label][index].hero.brand.url;
         output.hero.classes = Content[type.label][index].hero.title.replace(/ /g,"_").toLowerCase();
         output.callout = Content[type.label][index].Callout;
+        output.calloutCurrent = current;
         delete output.Callout;
         output.modalAction = {
             callback: function(location) {
                 window.open(location, "_blank");
             },
+            footer: "Clicking the &quot;Apply&quot; button will open up a new tab with the job application on the " + output.hero.title + " website.",
             label: "Apply"
         };
         output.cdn = cdn;
@@ -66,7 +68,7 @@ const routes = [
             title: titlePrefix + 'Home',
         },
         props: {
-            content: getContent(OPTIONS.EXPERIENCE, "Gecko Robotics")
+            content: getContent(OPTIONS.EXPERIENCE, "Gecko Robotics", true)
         }
     },
     {
