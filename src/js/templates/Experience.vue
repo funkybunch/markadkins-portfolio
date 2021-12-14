@@ -8,7 +8,7 @@
                 </div>
                 <div class="col w-6">
                     <h2 class="bold">My Role</h2>
-                    <div v-html="content.main.role"></div>
+                    <div v-html="$options.filters.markdown(content.role.body)"></div>
                 </div>
             </div>
         </div>
@@ -34,14 +34,14 @@
         },
         data() {
             return {
-                callout: this.$props.content.callout
+                callout: []
             }
         },
         methods: {
             updateCardData(obj) {
-                this.callout.items = obj;
+                this.callout = obj;
             },
-            updateCardItems(){
+            updateCardItems() {
                 const card = new CalloutCore({
                     propsData: {
                         content: this.callout
@@ -52,20 +52,17 @@
         },
         mounted() {
             let self = this;
-            this.callout.cdn = this.$root.$data.cdn;
-            if(Object.keys(this.callout.items).length === 0) {
+            if(this.content.callout[0].applicant_tracking_system) {
                 axios
-                    .get('https://api.markadkins.design/v1/jobs/')
+                    .get('http://localhost:3001/v1/jobs/')
                     .then(function(response) {
-                        if(self.$router.currentRoute.name === "Home"){
-                            self.updateCardData(response.data);
-                            self.updateCardItems();
-                        } else if(self.$router.currentRoute.name === "Experience - Bellese"){
-                            self.updateCardData(response.data);
-                            self.updateCardItems();
-                        } else {
-                            console.log("Callout data for route not found.");
-                        }
+                        self.updateCardData({
+                          type: "Postings",
+                          items: response.data[self.content.callout[0].applicant_tracking_system.company_slug],
+                          title: "Work With Me",
+                          cdn: self.content.cdn
+                        });
+                        self.updateCardItems();
                     })
                     .catch(function(err) {
                         console.log(err);

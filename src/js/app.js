@@ -10,6 +10,7 @@ import Clipboard from 'v-clipboard'
 import { router, data } from './router'
 const Portfolio = Vue.extend(AppView)
 import VueAnnouncer from 'vue-announcer'
+import { marked } from 'marked'
 import '../stylesheets/style.sass'
 
 Vue.use(Clipboard)
@@ -50,6 +51,10 @@ router.afterEach((to, from) => {
         document.title = to.meta.title || data.titlePrefix + "Senior Product Designer";
     });
 });
+
+Vue.filter('markdown', function(value) {
+    return marked.parse(value);
+})
 
 // Constructor
 const app = new Portfolio({

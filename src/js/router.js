@@ -16,49 +16,43 @@ import ExperienceTemplate from './templates/Experience.vue'
 import EducationTemplate from './templates/Education.vue'
 import ErrorTemplate from './templates/Error.vue'
 
-function setBelleseContent() {
-    let output = {};
-    output = Content.experience.bellese;
-    output.hero.brand = cdn + Content.experience.bellese.hero.brand;
-    output.callout.modalAction.callback = function(location) {
-        window.open(location, "_blank");
+const OPTIONS = {
+    EXPERIENCE: {
+        label: "experience",
+        matchOn: "company"
+    },
+    EDUCATION: {
+        label: "education",
+        matchOn: "institution"
     }
-    return output;
 }
 
-function setAccentureContent() {
+function getContent(type, entity) {
     let output = {};
-    output = Content.experience.accenture;
-    output.hero.brand = cdn + Content.experience.accenture.hero.brand;
-    return output;
+    let index;
+    for(let i = 0; Content[type.label].length > i; i++) {
+        if(Content[type.label][i][type.matchOn].toLowerCase() === entity.replace(/-/g," ").toLowerCase()) {
+            index = i;
+            break;
+        }
+    }
+    try {
+        output = Content[type.label][index];
+        output.hero.brand = Content[type.label][index].hero.brand.url;
+        output.hero.classes = Content[type.label][index].hero.title.replace(/ /g,"_").toLowerCase();
+        output.callout = Content[type.label][index].Callout;
+        delete output.Callout;
+        output.callout.modalAction = {};
+        output.callout.modalAction.callback = function(location) {
+            window.open(location, "_blank");
+        }
+        output.cdn = cdn;
+        return output;
+    } catch(e) {
+        console.error("Invalid entity name:", entity);
+        console.error(e);
+    }
 }
-
-function setDigikompContent() {
-    let output = {};
-    output = Content.experience.digikomp;
-    output.hero.brand = cdn + Content.experience.digikomp.hero.brand;
-    return output;
-}
-
-function setContent(content) {
-    let output = {};
-    output = content;
-    output.hero.brand = cdn + content.hero.brand;
-    return output;
-}
-
-// function setTADContent() {
-//     let output = {};
-//     output = Content.experience.tad;
-//     output.hero.brand = cdn + Content.experience.tad.hero.brand;
-//     return output;
-// }
-
-let Experience = {};
-Experience.Bellese = setBelleseContent();
-Experience.Accenture = setAccentureContent();
-Experience.DigiKomp = setDigikompContent();
-// Experience.TAD = setTADContent();
 
 // Router Configuration
 const routes = [
@@ -70,74 +64,28 @@ const routes = [
             title: titlePrefix + 'Home',
         },
         props: {
-            content: Experience.Bellese
+            content: getContent(OPTIONS.EXPERIENCE, "Gecko Robotics")
         }
     },
     {
-        path: '/experience/bellese',
-        name: 'Experience - Bellese',
+        path: '/experience/:company',
         component: ExperienceTemplate,
-        meta: {
-            title: titlePrefix + 'Experience - Bellese',
-        },
-        props: {
-            content: Experience.Bellese
-        }
+        meta: (route) => ({
+            title: titlePrefix + 'Experience - ' + route.params.company.replace(/-/g," "),
+        }),
+        props: (route) => ({
+            content: getContent(OPTIONS.EXPERIENCE, route.params.company)
+        })
     },
     {
-        path: '/experience/accenture',
-        name: 'Experience - Accenture',
-        component: ExperienceTemplate,
-        meta: {
-            title: titlePrefix + 'Experience - Accenture',
-        },
-        props: {
-            content: Experience.Accenture
-        }
-    },
-    {
-        path: '/experience/digikomp',
-        name: 'Experience - DigiKomp',
-        component: ExperienceTemplate,
-        meta: {
-            title: titlePrefix + 'Experience - DigiKomp',
-        },
-        props: {
-            content: Experience.DigiKomp
-        }
-    },
-    // {
-    //     path: '/experience/tad',
-    //     name: 'Experience - TAD',
-    //     component: ExperienceTemplate,
-    //     meta: {
-    //         title: titlePrefix + 'Experience - TAD',
-    //     },
-    //     props: {
-    //         content: Experience.TAD
-    //     }
-    // },
-    {
-        path: '/education/jmu',
-        name: 'Education - James Madison University',
+        path: '/education/:institution',
         component: EducationTemplate,
-        meta: {
-            title: titlePrefix + 'Education - James Madison University',
-        },
-        props: {
-            content: setContent(Content.education.JMU)
-        }
-    },
-    {
-        path: '/education/gatech',
-        name: 'Education - Georgia Institute of Technology',
-        component: EducationTemplate,
-        meta: {
-            title: titlePrefix + 'Education - Georgia Institute of Technology',
-        },
-        props: {
-            content: setContent(Content.education.GATech)
-        }
+        meta: (route) => ({
+            title: titlePrefix + 'Education - ' + route.params.institution.replace(/-/g," "),
+        }),
+        props: (route) => ({
+            content: getContent(OPTIONS.EXPERIENCE, route.params.institution)
+        })
     },
     {
         path: '/error',
