@@ -4,6 +4,9 @@
  */
 
 // App Core
+console.err = function() {}
+console.warn = function() {}
+console.error = function() {}
 import Vue from 'vue'
 import AppView from './AppView.vue'
 import Clipboard from 'v-clipboard'
@@ -12,6 +15,7 @@ const Portfolio = Vue.extend(AppView)
 import VueAnnouncer from 'vue-announcer'
 import { marked } from 'marked'
 import '../stylesheets/style.sass'
+
 
 Vue.use(Clipboard)
 Vue.use(VueAnnouncer)

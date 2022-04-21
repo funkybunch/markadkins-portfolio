@@ -56,6 +56,7 @@ for(let i = 0; i < pages.length; i++) {
 module.exports = {
     mode: "production",
     bail: true,
+    devtool: 'source-map',
     entry: {
         app: "./src/js/app.js"
     },
@@ -79,10 +80,7 @@ module.exports = {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: process.env.NODE_ENV === 'development'
-                        }
+                        loader: MiniCssExtractPlugin.loader
                     },
                     // Translates CSS into CommonJS
                     'css-loader',
@@ -98,7 +96,7 @@ module.exports = {
                         options: {
                             outputPath: 'assets',
                             publicPath: '/assets',
-                            name: '[name].[ext]',
+                            name: '[name].[hash].[ext]',
                             esModule: false,
                         }
                     },
@@ -156,7 +154,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "[name].min.js",
+        filename: "[name].[hash].min.js",
         publicPath: "/"
     }
 };

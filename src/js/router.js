@@ -42,6 +42,8 @@ function getContent(type, entity) {
     try {
         output = JSON.parse(JSON.stringify(Content[type.label][index]));
         output.hero.brand = JSON.parse(JSON.stringify(Content[type.label][index].hero.brand.url));
+        output.hero.brandWidth = JSON.parse(JSON.stringify(Content[type.label][index].hero.brand.width));
+        output.hero.brandHeight = JSON.parse(JSON.stringify(Content[type.label][index].hero.brand.height));
         output.hero.classes = JSON.parse(JSON.stringify(Content[type.label][index].hero.title.replace(/ /g,"_").toLowerCase()));
         output.callout = JSON.parse(JSON.stringify(Content[type.label][index].Callout));
         output.calloutCurrent = current;

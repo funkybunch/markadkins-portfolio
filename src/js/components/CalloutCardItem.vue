@@ -1,8 +1,8 @@
 <template>
     <div v-bind:class="'callout-card-item ' + content.class ">
         <figure class="icon-container">
-          <img v-if="content.icon.url" :alt="content.class + ' icon'" :src="content.icon.url"/>
-          <img v-else :alt="content.class + ' icon'" :src="cdn + content.icon"/>
+          <img v-if="content.icon.url" :alt="content.class + ' icon'" :src="content.icon.url" :width="content.icon.width" :height="content.icon.height"/>
+          <img v-else :alt="content.class + ' icon'" :src="cdn + content.icon" :width="content.iconWidth" :height="content.iconHeight"/>
         </figure>
         <div class="item-content">
             <h3 v-if="content.title" v-html="content.title"></h3>
