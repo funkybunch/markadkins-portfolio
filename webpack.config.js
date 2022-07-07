@@ -46,6 +46,7 @@ for(let i = 0; i < pages.length; i++) {
             title: "Mark Adkins // Portfolio",
             template: path.join(__dirname, 'src/index.html'),
             filename: path.join(__dirname, 'dist' + page + 'index.html'),
+            favicon: "src/favicon.ico",
             inject: true,
             minify: true
         })
