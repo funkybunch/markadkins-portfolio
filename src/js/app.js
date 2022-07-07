@@ -14,6 +14,7 @@ import { router, data } from './router'
 const Portfolio = Vue.extend(AppView)
 import VueAnnouncer from 'vue-announcer'
 import { marked } from 'marked'
+import './console'
 import '../stylesheets/style.sass'
 
 
