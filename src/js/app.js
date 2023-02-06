@@ -4,13 +4,19 @@
  */
 
 // App Core
+console.err = function() {}
+console.warn = function() {}
+console.error = function() {}
 import Vue from 'vue'
 import AppView from './AppView.vue'
 import Clipboard from 'v-clipboard'
 import { router, data } from './router'
 const Portfolio = Vue.extend(AppView)
 import VueAnnouncer from 'vue-announcer'
+import { marked } from 'marked'
+import './console'
 import '../stylesheets/style.sass'
+
 
 Vue.use(Clipboard)
 Vue.use(VueAnnouncer)
@@ -50,6 +56,10 @@ router.afterEach((to, from) => {
         document.title = to.meta.title || data.titlePrefix + "Senior Product Designer";
     });
 });
+
+Vue.filter('markdown', function(value) {
+    return marked.parse(value);
+})
 
 // Constructor
 const app = new Portfolio({

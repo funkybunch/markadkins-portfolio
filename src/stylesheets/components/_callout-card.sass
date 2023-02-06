@@ -39,6 +39,7 @@ aside.callout-card
       letter-spacing: 0.67px
       text-align: center
       background-color: $white
+      margin-bottom: 8px
       padding: $base-v-spacing/3 $base-h-spacing
       &:hover
         background-color: $white-tint
@@ -102,13 +103,18 @@ aside.callout-card
   aside.callout-card
     max-width: 100%
     padding: $base-v-spacing/2 $base-h-spacing 0 $base-h-spacing
-    margin-top: 0
+    margin-top: -96px
+    margin-bottom: 32px
     &.filterable
-      height: 576px
+      height: 568px
     &.items-1.filterable
       height: 330px
+    &.items-1.filterable.filter-row-3
+      height: 453px
     &.items-2.filterable
       height: 453px
+    &.items-2.filterable.filter-row-3
+      height: 568px
     &:not(.filterable)
       height: 572px
       max-height: unset

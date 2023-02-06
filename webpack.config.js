@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const pages = [
+    "/experience/gecko-robotics/",
     "/experience/bellese/",
     "/experience/accenture/",
     "/experience/digikomp/",
@@ -45,6 +46,7 @@ for(let i = 0; i < pages.length; i++) {
             title: "Mark Adkins // Portfolio",
             template: path.join(__dirname, 'src/index.html'),
             filename: path.join(__dirname, 'dist' + page + 'index.html'),
+            favicon: "src/favicon.ico",
             inject: true,
             minify: true
         })
@@ -55,6 +57,7 @@ for(let i = 0; i < pages.length; i++) {
 module.exports = {
     mode: "production",
     bail: true,
+    devtool: 'source-map',
     entry: {
         app: "./src/js/app.js"
     },
@@ -78,10 +81,7 @@ module.exports = {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: process.env.NODE_ENV === 'development'
-                        }
+                        loader: MiniCssExtractPlugin.loader
                     },
                     // Translates CSS into CommonJS
                     'css-loader',
@@ -97,7 +97,7 @@ module.exports = {
                         options: {
                             outputPath: 'assets',
                             publicPath: '/assets',
-                            name: '[name].[ext]',
+                            name: '[name].[hash].[ext]',
                             esModule: false,
                         }
                     },
@@ -155,7 +155,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "[name].min.js",
+        filename: "[name].[hash].min.js",
         publicPath: "/"
     }
 };

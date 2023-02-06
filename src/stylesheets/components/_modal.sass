@@ -53,12 +53,20 @@
           outline-offset: 2px
       .modal-actions
         margin-top: $base-h-spacing*2
+      .modal-footer
+        margin-top: $base-h-spacing*2
+        p
+          font-weight: 600
+          font-size: 14px
 
-@media all and (max-width:  $size-mobile)
+@media all and (max-width: $size-mobile)
   .modal
     .modal-container
       .modal-body
         padding: $base-v-spacing $base-h-spacing
+        h1
+          margin-top: $base-h-spacing + 60px
         .close
           top: $base-v-spacing
-          right: $base-h-spacing*2
+          right: 0
+          width: 60px

@@ -15,7 +15,7 @@
             return {
                 hero: {
                     theme: "light",
-                    class: "error",
+                    classes: "error",
                     title: "It Did Something Weird!",
                     heroContent: 'That page doesn&apos;t seem to exist...<br/><br/>You can <a href="/">go back to the home page</a>, or email me and I&apos;ll look into it.  My email address is at the bottom of the page.'
                 }

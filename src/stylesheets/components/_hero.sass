@@ -73,50 +73,71 @@ $hero-height: 635px
         height: 100%
         max-width: 540px
         max-height: 120px
+
+  &.gecko_robotics
+    background: radial-gradient(circle at 100% 200%, #084246 0%, #0B212D 100%)
+    .hero-image
+      background-position: bottom right
+      opacity: 0.04
+    .hero-content
+      img
+        max-width: 330px
+
   &.bellese
     background: linear-gradient(-225deg, rgb(0, 45, 114) 0%, rgb(148, 39, 160) 100%)
     .hero-image
-      background-image: url($cdn + '/images/bellese_hero.jpg')
       opacity: 0.04
 
   &.accenture
     background: #008fff
     .hero-image
-      background-image: url($cdn + '/images/acn_hero.jpg')
       background-position: center
       opacity: 0.04
 
   &.digikomp
     background: #0b307b
     .hero-image
-      background-image: url($cdn + '/images/digikomp_hero.jpg')
       background-position: bottom left
       opacity: 0.04
 
   &.jmu
     background: #450084
     .hero-image
-      background-image: url($cdn + '/images/madkins_photo_jmu.jpg')
       background-position: top right
       opacity: 0.04
 
-  &.gatech
+  &.ga_tech
     background: #DAD0AC
     .hero-image
-      background-image: url($cdn + '/images/gatech-bkg.jpg')
       background-position: center
       opacity: 0.04
+    .hero-content
+      img
+        max-width: 300px
 
   &.error
     background: $black
     .hero-image
       @extend .hero-image
-      background-image: url($cdn + '/images/madkins-photography-milkyway.jpg')
+      background-image: url("https://cdn.markadkins.design/images/madkins-photography-milkyway.jpg")
       opacity: 0.6
 
-@media all and (max-width:  605px)
+@media all and (max-width: $size-tablet-small)
   .hero
     &.education
       .hero-content
         img
           max-width: 100%
+    &.error
+      height: auto
+      .hero-image
+        max-height: 100%
+
+
+@media all and (max-width: $size-mobile)
+  .hero
+    padding-bottom: $base-v-spacing*2
+    .hero-container
+      .hero-content
+        img
+          max-width: 80%

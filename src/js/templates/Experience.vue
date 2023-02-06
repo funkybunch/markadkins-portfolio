@@ -1,6 +1,6 @@
 <template>
     <div class="app-container">
-        <Hero v-bind:content="content.hero" />
+        <Hero :content="content.hero" />
         <div class="main-container">
             <div class="row">
                 <div class="col w-6">
@@ -8,7 +8,7 @@
                 </div>
                 <div class="col w-6">
                     <h2 class="bold">My Role</h2>
-                    <div v-html="content.main.role"></div>
+                    <div v-html="$options.filters.markdown(content.role.body)"></div>
                 </div>
             </div>
         </div>
@@ -34,14 +34,14 @@
         },
         data() {
             return {
-                callout: this.$props.content.callout
+                callout: []
             }
         },
         methods: {
             updateCardData(obj) {
-                this.callout.items = obj;
+                this.callout = obj;
             },
-            updateCardItems(){
+            updateCardItems() {
                 const card = new CalloutCore({
                     propsData: {
                         content: this.callout
@@ -52,26 +52,30 @@
         },
         mounted() {
             let self = this;
-            this.callout.cdn = this.$root.$data.cdn;
-            if(Object.keys(this.callout.items).length === 0) {
+            if(this.content.callout[0].applicant_tracking_system) {
                 axios
-                    .get('https://api.markadkins.design/v1/jobs/')
+                    .get('https://api.madkins.dev/v1/jobs/')
                     .then(function(response) {
-                        if(self.$router.currentRoute.name === "Home"){
-                            self.updateCardData(response.data);
-                            self.updateCardItems();
-                        } else if(self.$router.currentRoute.name === "Experience - Bellese"){
-                            self.updateCardData(response.data);
-                            self.updateCardItems();
-                        } else {
-                            console.log("Callout data for route not found.");
-                        }
+                        let title = (self.content.calloutCurrent) ? 'Work With Me' : 'Work At ' + self.content.hero.title;
+                        let subtitle = (!self.content.calloutCurrent) ? "I don't work here anymore, but I loved my time at " + self.content.hero.title + ".  Great people and a great place to work.  Let me know if you'd like me to connect you." : '';
+                        self.updateCardData({
+                          type: "Postings",
+                          items: response.data[self.content.callout[0].applicant_tracking_system.company_slug],
+                          title: title,
+                          subtitle: subtitle,
+                          cdn: self.content.cdn,
+                          modalAction: self.content.modalAction
+                        });
+                        self.updateCardItems();
                     })
                     .catch(function(err) {
                         console.log(err);
                     });
             } else {
-                // Callout object should include .items object for all other pages
+                this.updateCardData({
+                  items: self.content.callout[0].callout_list_item,
+                  title: self.content.callout[0].title
+                });
                 self.updateCardItems();
             }
         }

@@ -1,0 +1,11 @@
+projectName: Portfolio
+version: 6.1.1
+icons:
+  - code-fork:
+      - light
+  - pen-nib:
+      - light
+  - briefcase:
+      - light
+  - screwdriver-wrench:
+      - light

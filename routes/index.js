@@ -6,13 +6,10 @@ let path = require('path');
 router.get('/', function(req, res, next) {
   res.sendFile(path.resolve(__dirname, '..') + '/src/index.html');
 });
-router.get('/experience/bellese', function(req, res, next) {
+router.get('/experience/*', function(req, res, next) {
   res.sendFile(path.resolve(__dirname, '..') + '/src/index.html');
 });
-router.get('/experience/accenture', function(req, res, next) {
-  res.sendFile(path.resolve(__dirname, '..') + '/src/index.html');
-});
-router.get('/experience/digikomp', function(req, res, next) {
+router.get('/education/*', function(req, res, next) {
   res.sendFile(path.resolve(__dirname, '..') + '/src/index.html');
 });
 router.get('/jobs/stats', function(req, res, next) {
