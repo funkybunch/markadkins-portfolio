@@ -27,7 +27,6 @@
                         <span>3882</span>
                     </p>
                     <copy-popover v-bind:content="copyPopoverContent" v-bind:copy-value="copyClipboardValue"/>
-                  <router-link to="/jobs/stats/">Job Stats</router-link>
                 </div>
             </div>
             <div class="col w-6">
