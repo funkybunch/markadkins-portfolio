@@ -1,7 +1,19 @@
 <template>
     <div class="app-container">
-        <Hero />
+        <Nav v-bind:theme="'dark'"/>
         <div class="main-container">
+            <div class="row" style="padding-top:0;">
+                <div class="col w-12" style="margin-bottom:96px;">
+                    <h1 style="margin-top:0;">2023 Job Search Stats</h1>
+                    <h4>At a glance:</h4>
+                    <ul>
+                        <li>92 Job Applications</li>
+                        <li>21% Response Rate</li>
+                        <li>36 Total Interviews & Recruiter Calls</li>
+                        <li>3 Offers</li>
+                    </ul>
+                </div>
+            </div>
             <div class="row">
                 <div class="col w-6">
                     <div class="chart-container" style="min-height: 600px;margin-top:-75px;">
@@ -14,7 +26,7 @@
                     </div>
                 </div>
                 <div class="col w-6">
-                    <div class="chart-container" style="min-height: 600px;margin-top:-35px;">
+                    <div class="chart-container" style="min-height: 600px;margin-top:30px;">
                       <GChart
                           :settings="{ packages: ['sankey'] }"
                           type="Sankey"
@@ -58,6 +70,7 @@
     import GChart from 'vue-google-charts/legacy'
     import Hero from '../components/Hero.vue'
     import Footer from '../components/Footer.vue'
+    import Nav from '../components/Nav.vue'
 
     Vue.use(GChart)
 
@@ -65,7 +78,8 @@
         name: 'JobStats',
         components: {
             Hero,
-            Footer
+            Footer,
+            Nav
         },
         data() {
             return {
