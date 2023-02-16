@@ -12,6 +12,9 @@ router.get('/experience/*', function(req, res, next) {
 router.get('/education/*', function(req, res, next) {
   res.sendFile(path.resolve(__dirname, '..') + '/src/index.html');
 });
+router.get('/jobs/stats', function(req, res, next) {
+  res.sendFile(path.resolve(__dirname, '..') + '/src/index.html');
+});
 // COMING SOON
 // router.get('/experience/tad', function(req, res, next) {
 //   res.sendFile(path.resolve(__dirname, '..') + '/src/index.html');

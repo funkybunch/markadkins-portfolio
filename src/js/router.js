@@ -16,6 +16,7 @@ import Content from './content.json'
 import ExperienceTemplate from './templates/Experience.vue'
 import EducationTemplate from './templates/Education.vue'
 import ErrorTemplate from './templates/Error.vue'
+import JobStats from './templates/JobStats.vue'
 
 const OPTIONS = {
     EXPERIENCE: {
@@ -97,6 +98,14 @@ const routes = [
         props: (route) => ({
             content: getContent(OPTIONS.EDUCATION, route.params.institution)
         })
+    },
+    {
+        path: '/jobs/stats',
+        name: 'Job Application Statistics',
+        component: JobStats,
+        meta: {
+            title: titlePrefix + 'Job Application Statistics',
+        },
     },
     {
         path: '*',

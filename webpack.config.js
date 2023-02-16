@@ -13,7 +13,8 @@ const pages = [
     "/experience/digikomp/",
     "/experience/tad/",
     "/education/jmu/",
-    "/education/gatech/"
+    "/education/gatech/",
+    "/jobs/stats/"
 ];
 
 let plugins = [
