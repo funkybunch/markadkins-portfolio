@@ -34,19 +34,20 @@ function getContent(type, entity) {
     let index;
     let current = (currentCompany.toLowerCase() === entity.replace(/-/g," ").toLowerCase());
     for(let i = 0; Content[type.label].length > i; i++) {
-        // console.log("comparing", Content[type.label][i][type.matchOn].toLowerCase(), "to", entity.replace(/-/g," ").toLowerCase())
-        if(Content[type.label][i][type.matchOn].toLowerCase() === entity.replace(/-/g," ").toLowerCase()) {
+        console.log("run", type)
+        console.log("comparing", Content[type.label][i]['attributes'][type.matchOn].toLowerCase(), "to", entity.replace(/-/g," ").toLowerCase())
+        if(Content[type.label][i]['attributes'][type.matchOn].toLowerCase() === entity.replace(/-/g," ").toLowerCase()) {
             index = i;
             break;
         }
     }
     try {
         output = JSON.parse(JSON.stringify(Content[type.label][index]));
-        output.hero.brand = JSON.parse(JSON.stringify(Content[type.label][index].hero.brand.url));
-        output.hero.brandWidth = JSON.parse(JSON.stringify(Content[type.label][index].hero.brand.width));
-        output.hero.brandHeight = JSON.parse(JSON.stringify(Content[type.label][index].hero.brand.height));
-        output.hero.classes = JSON.parse(JSON.stringify(Content[type.label][index].hero.title.replace(/ /g,"_").toLowerCase()));
-        output.callout = JSON.parse(JSON.stringify(Content[type.label][index].Callout));
+        output.attributes.hero.brand = JSON.parse(JSON.stringify(Content[type.label][index].attributes.hero.brand.data.attributes.url));
+        output.attributes.hero.brandWidth = JSON.parse(JSON.stringify(Content[type.label][index].attributes.hero.brand.data.attributes.width));
+        output.attributes.hero.brandHeight = JSON.parse(JSON.stringify(Content[type.label][index].attributes.hero.brand.data.attributes.height));
+        output.attributes.hero.classes = JSON.parse(JSON.stringify(Content[type.label][index].attributes.hero.title.replace(/ /g,"_").toLowerCase()));
+        output.callout = JSON.parse(JSON.stringify(Content[type.label][index].attributes.Callout));
         output.calloutCurrent = current;
         delete output.Callout;
         output.modalAction = {

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "start:dev": "node webpack.build.js --dev",
+    "start:dev": "node webpack.build.js --dev --mode=development",
     "build": "node webpack.build.js",
     "compile": "webpack -p --config webpack.config.js",
     "compile:serve": "webpack-dev-server --hot --host 0.0.0.0 --mode=development --config webpack.config.js"
