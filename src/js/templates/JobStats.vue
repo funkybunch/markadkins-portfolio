@@ -7,9 +7,9 @@
                     <h1 style="margin-top:0;">2023 Job Search Stats</h1>
                     <h4>At a glance:</h4>
                     <ul>
-                        <li>92 Job Applications</li>
-                        <li>21% Response Rate</li>
-                        <li>36 Total Interviews & Recruiter Calls</li>
+                        <li>92 Job applications</li>
+                        <li>21% Chance of speaking with an organization</li>
+                        <li>36 Total interviews & recruiter calls</li>
                         <li>3 Offers</li>
                     </ul>
                 </div>
