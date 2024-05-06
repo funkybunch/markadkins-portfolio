@@ -8,7 +8,7 @@ import Vue from "vue"
 import Router from 'vue-router'
 const cdn = "https://cdn.markadkins.design"
 const titlePrefix = "Mark Adkins // "
-const currentCompany = "Gecko Robotics"
+const currentCompany = "Fidelity"
 Vue.use(Router)
 
 // Components & Data

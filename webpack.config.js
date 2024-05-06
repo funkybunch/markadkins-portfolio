@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const pages = [
+    "/experience/fidelity/",
     "/experience/gecko-robotics/",
     "/experience/bellese/",
     "/experience/accenture/",
