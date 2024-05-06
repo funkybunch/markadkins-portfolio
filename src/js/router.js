@@ -43,19 +43,19 @@ function getContent(type, entity) {
     }
     try {
         output = JSON.parse(JSON.stringify(Content[type.label][index]));
+        output.attributes.company = JSON.parse(JSON.stringify(Content[type.label][index].attributes.company));
         output.attributes.hero.brand = JSON.parse(JSON.stringify(Content[type.label][index].attributes.hero.brand.data.attributes.url));
         output.attributes.hero.brandWidth = JSON.parse(JSON.stringify(Content[type.label][index].attributes.hero.brand.data.attributes.width));
         output.attributes.hero.brandHeight = JSON.parse(JSON.stringify(Content[type.label][index].attributes.hero.brand.data.attributes.height));
         output.attributes.hero.classes = JSON.parse(JSON.stringify(Content[type.label][index].attributes.hero.title.replace(/ /g,"_").toLowerCase()));
         output.callout = JSON.parse(JSON.stringify(Content[type.label][index].attributes.Callout));
         output.calloutCurrent = current;
-        const company = output.company;
         delete output.Callout;
         output.modalAction = {
             callback: function(location) {
                 window.open(location, "_blank");
             },
-            footer: "Clicking the &quot;Apply&quot; button will open up a new tab with the job application on the " + company + " website.",
+            footer: "Clicking the &quot;Apply&quot; button will open up a new tab with the job application on the " + output.attributes.company + " website.",
             label: "Apply"
         };
         output.cdn = cdn;
