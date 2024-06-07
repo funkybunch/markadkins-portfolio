@@ -6,7 +6,7 @@
 // Router Core
 import Vue from "vue"
 import Router from 'vue-router'
-const cdn = "https://cdn.markadkins.design"
+const cdn = "https://s3.adkins.coffee/assets"
 const titlePrefix = "Mark Adkins // "
 const currentCompany = "Fidelity"
 Vue.use(Router)
