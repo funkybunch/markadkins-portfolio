@@ -5,7 +5,7 @@
             <div class="row reverse-stack">
                 <div class="col w-6">
                     <h2 class="bold">{{ content.content_block[0].title }}</h2>
-                    <div v-html="$options.filters.markdown(content.content_block[0].description)"></div>
+                    <div v-html="$filters.markdown(content.content_block[0].description)"></div>
                 </div>
                 <div class="col w-6">
                     <div id="card-container"></div>
@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col w-12">
                     <h3>{{ content.content_block[0].subtitle }}</h3>
-                    <div v-html="$options.filters.markdown(content.content_block[0].body)"></div>
+                    <div v-html="$filters.markdown(content.content_block[0].body)"></div>
                 </div>
             </div>
         </div>
@@ -23,12 +23,11 @@
 </template>
 
 <script>
-    import Vue from 'vue'
     import Hero from '../components/Hero.vue'
     import Footer from '../components/Footer.vue'
     import CalloutCard from '../components/CalloutCard.vue'
     import axios from 'axios'
-    const CalloutCore = Vue.extend(CalloutCard)
+    const CalloutCore = CalloutCard;
 
     export default {
         name: 'EducationTemplate',
@@ -58,7 +57,7 @@
         },
         mounted() {
             let self = this;
-            this.callout.cdn = this.$root.$data.cdn;
+            this.callout.cdn = this.cdn;
             this.updateCardData({
               items: self.content.callout[0].callout_list_item,
               title: self.content.callout[0].title

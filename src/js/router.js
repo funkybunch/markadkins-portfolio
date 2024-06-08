@@ -4,12 +4,10 @@
  */
 
 // Router Core
-import Vue from "vue"
-import Router from 'vue-router'
-const cdn = "https://s3.adkins.coffee/assets"
-const titlePrefix = "Mark Adkins // "
-const currentCompany = "Fidelity"
-Vue.use(Router)
+import { createMemoryHistory, createRouter }  from 'vue-router';
+const cdn = import.meta.env.VITE_CDN;
+const titlePrefix = "Mark Adkins // ";
+const currentCompany = "Fidelity";
 
 // Components & Data
 import Content from './content.json'
@@ -109,15 +107,15 @@ const routes = [
         },
     },
     {
-        path: '*',
+        path: '/:pathMatch(.*)*',
         name: 'error',
         component: ErrorTemplate
     }
 ]
 
-export const router = new Router({
-    mode: 'history',
-    routes
+export const router = createRouter({
+    history: createMemoryHistory(),
+    routes,
 })
 
 export const data = {

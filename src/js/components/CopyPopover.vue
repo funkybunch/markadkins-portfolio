@@ -15,6 +15,7 @@
 </template>
 
 <script>
+    import { Clipboard } from 'v-clipboard'
     export default {
         name: 'CopyPopover',
         props: ['content', 'copyValue'],
