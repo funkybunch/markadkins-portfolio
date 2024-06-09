@@ -20,44 +20,44 @@
     height: 100vh
     overflow-y: scroll
     .modal-body
-      border-radius: 12px
-      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
+      border-radius: 0.75rem
+      box-shadow: 0 0.875rem 1.75rem rgba(0,0,0,0.25), 0 0.625rem 0.625rem rgba(0,0,0,0.22)
       position: relative
       z-index: 100001
       background-color: #fefefe
       padding: $base-v-spacing*2 $base-h-spacing*3
       margin: $base-v-spacing auto
-      max-width: 960px
-      min-width: 340px
+      max-width: 60rem
+      min-width: 21.25rem
       a
         word-break: break-all
         &:focus
-          outline: $primary-blue solid 4px
-          outline-offset: 2px
+          outline: $primary-blue solid 0.25rem
+          outline-offset: 0.125rem
       h1
-        font-size: 48px
+        font-size: 3rem
         font-weight: 500
-        letter-spacing: 2.4px
-        max-width: 642px
+        letter-spacing: 0.15rem
+        max-width: 40.125rem
       .close
         display: inline-block
         background: none
-        font-size: 42px
+        font-size: 2.625rem
         position: absolute
         padding: 0
         top: $base-v-spacing*2
         right: $base-h-spacing*3
         cursor: pointer
         &:focus
-          outline: $primary-blue solid 4px
-          outline-offset: 2px
+          outline: $primary-blue solid 0.25rem
+          outline-offset: 0.125rem
       .modal-actions
         margin-top: $base-h-spacing*2
       .modal-footer
         margin-top: $base-h-spacing*2
         p
           font-weight: 600
-          font-size: 14px
+          font-size: 0.875rem
 
 @media all and (max-width: $size-mobile)
   .modal
@@ -65,8 +65,8 @@
       .modal-body
         padding: $base-v-spacing $base-h-spacing
         h1
-          margin-top: $base-h-spacing + 60px
+          margin-top: $base-h-spacing + 3.75rem
         .close
           top: $base-v-spacing
           right: 0
-          width: 60px
+          width: 3.75rem

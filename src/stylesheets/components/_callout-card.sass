@@ -1,18 +1,18 @@
 aside.callout-card
   position: relative
   width: 100%
-  max-width: 680px
+  max-width: 42.5rem
   box-sizing: border-box
   background-color: $white
-  border-radius: 12px
-  min-height: 100px
-  height: 590px
-  max-height: 590px
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
+  border-radius: 0.75rem
+  min-height: 6.25rem
+  height: 36.875rem
+  max-height: 36.875rem
+  box-shadow: 0 0.875rem 1.75rem rgba(0,0,0,0.25), 0 0.625rem 0.625rem rgba(0,0,0,0.22)
   padding: $base-v-spacing $base-h-spacing*2 0 $base-h-spacing*2
   display: flex
   flex-flow: column
-  margin-top: -168px
+  margin-top: -10.5rem
   z-index: 150
 
   h2
@@ -21,25 +21,27 @@ aside.callout-card
 
   .filter-button-group
     flex-grow: 0
+    display: flex
     user-select: none
     margin: 0
     padding: 0
     padding-bottom: $base-v-spacing/2
     border: none
-    border-bottom: 4px solid $gray
+    border-bottom: 0.25rem solid $gray
+    gap: $base-v-spacing/2
     label
       cursor: pointer
       text-transform: capitalize
       border-radius: $base-v-spacing
-      border: 2px solid $black
+      border: 0.125rem solid $black
       display: inline-block
       box-sizing: border-box
-      font-size: 18px
+      font-size: 1.125rem
       font-weight: 500
-      letter-spacing: 0.67px
+      letter-spacing: 0.041875rem
       text-align: center
       background-color: $white
-      margin-bottom: 8px
+      margin-bottom: 0.5rem
       padding: $base-v-spacing/3 $base-h-spacing
       &:hover
         background-color: $white-tint
@@ -52,8 +54,8 @@ aside.callout-card
         border-color: $black
         color: $white
       &:focus + label
-        outline: $primary-blue solid 4px
-        outline-offset: 4px
+        outline: $primary-blue solid 0.25rem
+        outline-offset: 0.25rem
 
   .results-container
     display: flex
@@ -70,13 +72,13 @@ aside.callout-card
       bottom: 0
       overflow: auto
       p:first-child
-        font-size: 18px
+        font-size: 1.125rem
         font-weight: 600
-        letter-spacing: 1px
+        letter-spacing: 0.0625rem
     .scroll-indicator
-      padding: 8px
+      padding: 0.5rem
       position: relative
-      border-radius: 25px
+      border-radius: 1.625rem
       background-color: $black
       color: $white
       z-index: 9999
@@ -84,8 +86,8 @@ aside.callout-card
       align-self: flex-end
       margin: auto
       margin-bottom: $base-v-spacing*2
-      box-shadow: 0 8px 28px rgba(0,0,0,0.25), 0 4px 10px rgba(0,0,0,0.22)
-      border: 2px solid $black
+      box-shadow: 0 0.5rem 1.75rem rgba(0,0,0,0.25), 0 0.125rem 0.625rem rgba(0,0,0,0.22)
+      border: 0.125rem solid $black
       visibility: visible
       opacity: 1
       transition: all 250ms cubic-bezier(.43,.36,.44,.93)
@@ -93,7 +95,7 @@ aside.callout-card
       svg
         fill: $white
         display: inline-block
-        margin-top: 4px
+        margin-top: 0.25rem
         padding-right: $base-h-spacing/2
       &.hidden
         visibility: hidden
@@ -103,27 +105,27 @@ aside.callout-card
   aside.callout-card
     max-width: 100%
     padding: $base-v-spacing/2 $base-h-spacing 0 $base-h-spacing
-    margin-top: -96px
-    margin-bottom: 32px
+    margin-top: -6rem
+    margin-bottom: 2rem
     &.filterable
-      height: 568px
+      height: 35.5rem
     &.items-1.filterable
-      height: 330px
+      height: 20.625rem
     &.items-1.filterable.filter-row-3
-      height: 453px
+      height: 28.3125rem
     &.items-2.filterable
-      height: 453px
+      height: 28.3125rem
     &.items-2.filterable.filter-row-3
-      height: 568px
+      height: 35.5rem
     &:not(.filterable)
-      height: 572px
+      height: 35.75rem
       max-height: unset
     &.items-1:not(.filterable)
-      height: 206px
+      height: 12.875rem
     &.items-2:not(.filterable)
-      height: 332px
+      height: 20.75rem
     &.items-3:not(.filterable)
-      height: 450px
+      height: 28.125rem
 
 
 @import "callout-card-item"
