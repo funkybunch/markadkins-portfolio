@@ -7,6 +7,7 @@ export default defineConfig({
     envDir: __dirname,
     plugins: [vue()],
     build: {
-        outDir: '../dist'
+        outDir: '../dist',
+        minify: 'esbuild'
     }
 });
