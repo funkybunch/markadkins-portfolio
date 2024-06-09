@@ -5,5 +5,8 @@ import path from "path";
 export default defineConfig({
     root: path.join(__dirname, '/src/'),
     envDir: __dirname,
-    plugins: [vue()]
+    plugins: [vue()],
+    build: {
+        outDir: '../dist'
+    }
 });
