@@ -16,7 +16,7 @@ aside.callout-card
   z-index: 150
 
   h2
-    padding-bottom: $base-v-spacing/1.5
+    padding-bottom: $base-v-spacing/3
     flex: 0 1 auto
 
   .filter-button-group
@@ -26,9 +26,17 @@ aside.callout-card
     margin: 0
     padding: 0
     padding-bottom: $base-v-spacing/2
+    padding-top: $base-v-spacing/3
     border: none
     border-bottom: 0.25rem solid $gray
     gap: $base-v-spacing/2
+    overflow-y: scroll
+    overflow-x: initial
+    min-inline-size: unset
+    -ms-overflow-style: none
+    scrollbar-width: none
+    &::-webkit-scrollbar
+      display: none
     label
       cursor: pointer
       text-transform: capitalize

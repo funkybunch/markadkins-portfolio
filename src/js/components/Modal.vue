@@ -34,20 +34,11 @@
         props: ['modalVisible', 'header', 'content', 'action', 'actionData'],
         methods: {
             openModal() {
-                this.$emit('update:modalVisible', true);
+                this.$emit('openModal');
                 this.$nextTick(() => this.$refs.modalCloseBtn.focus());
             },
             closeModal() {
-                this.$emit('update:modalVisible', false);
-            }
-        },
-        watch: {
-            modalVisible: function(open) {
-                if(open) {
-                    this.openModal();
-                } else {
-                    this.closeModal();
-                }
+                this.$emit('closeModal');
             }
         }
     }

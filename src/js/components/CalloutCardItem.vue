@@ -24,7 +24,7 @@
         props: ['content', 'actionTrigger', 'cdn'],
         methods: {
             emitAction() {
-                this.$emit('update:actionTrigger', { triggered: true, item: this.$props.content });
+                this.$emit('actionTriggered', { triggered: true, item: this.$props.content });
             },
         }
     }

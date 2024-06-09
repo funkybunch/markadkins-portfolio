@@ -4,7 +4,7 @@
  */
 
 // Router Core
-import { createMemoryHistory, createRouter }  from 'vue-router';
+import { createRouter, createWebHistory }  from 'vue-router';
 const cdn = import.meta.env.VITE_CDN;
 const titlePrefix = "Mark Adkins // ";
 const currentCompany = "Fidelity";
@@ -114,7 +114,7 @@ const routes = [
 ]
 
 export const router = createRouter({
-    history: createMemoryHistory(),
+    history: createWebHistory(),
     routes,
 })
 
