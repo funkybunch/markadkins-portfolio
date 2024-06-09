@@ -5,12 +5,12 @@
   "scripts": {
     "start": "npm run preview",
     "start:dev": "npm run dev",
-    "dev": "vite --port 3000",
-    "build": "vite build",
-    "preview": "vite preview",
-    "compile": "vite build",
-    "compile:serve": "npm run preview",
-    "generate": "vite build && node prerender"
+    "dev": "npm run fetch && vite --port 3000",
+    "build": "npm run fetch && vite build",
+    "preview": "npm run fetch && vite preview",
+    "fetch": "node fetchcontent",
+    "compile": "npm run fetch && vite build",
+    "compile:serve": "npm run preview"
   },
   "dependencies": {
     "@vue-a11y/announcer": "^3.1.5",
