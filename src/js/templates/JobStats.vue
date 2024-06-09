@@ -66,13 +66,9 @@
 </template>
 
 <script>
-    import Vue from 'vue'
-    import GChart from 'vue-google-charts/legacy'
     import Hero from '../components/Hero.vue'
     import Footer from '../components/Footer.vue'
     import Nav from '../components/Nav.vue'
-
-    Vue.use(GChart)
 
     export default {
         name: 'JobStats',

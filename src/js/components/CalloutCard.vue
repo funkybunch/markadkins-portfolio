@@ -34,6 +34,7 @@
                         v-bind:content="item"
                         v-bind:cdn="content.cdn"
                         v-bind:action-trigger.sync="actionListener"
+                        @action-triggered="action"
                 />
             </div>
             <span v-if="hasCategories && results.length > 3"
@@ -42,11 +43,12 @@
                   class="scroll-indicator"><i class="fal fa-arrow-down"></i> Scroll for more</span>
         </div>
         <Modal v-if="hasCategories"
-               v-bind:modal-visible.sync="modalVisible"
-               v-bind:header.sync="modalHeader"
-               v-bind:content.sync="modalContent"
-               v-bind:action.sync="modalAction"
-               v-bind:action-data.sync="modalActionData"
+               v-bind:modal-visible="modalVisible"
+               v-bind:header="modalHeader"
+               v-bind:content="modalContent"
+               v-bind:action="modalAction"
+               v-bind:action-data="modalActionData"
+               @close-modal="hideModal"
         />
     </aside>
 </template>
@@ -127,19 +129,20 @@
                 this.lastScrollPosition = currentScrollPosition;
             },
             showModal(item) {
-                this.$data.modalVisible = true;
-                this.$data.modalHeader = item.title;
-                this.$data.modalContent = item.description;
-                this.$data.modalActionData = item.link;
-            }
-        },
-        watch: {
-            actionListener: function(action) {
-                if(action.triggered) {
-                    this.showModal(action.item);
-                    this.$data.actionListener.triggered = false;
-                    this.$data.actionListener.item = null;
-                }
+                this.modalVisible = true;
+                this.modalHeader = item.title;
+                this.modalContent = item.description;
+                this.modalActionData = item.link;
+            },
+            hideModal() {
+                this.modalVisible = false;
+            },
+            action(args) {
+              if(args.triggered) {
+                this.showModal(args.item);
+                this.actionListener.triggered = false;
+                this.actionListener.item = null;
+              }
             }
         },
         beforeDestroy () {

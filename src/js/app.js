@@ -4,26 +4,32 @@
  */
 
 // App Core
-console.err = function() {}
-console.warn = function() {}
-console.error = function() {}
-import Vue from 'vue'
-import AppView from './AppView.vue'
+import { createApp, ref } from 'vue';
+import AppView from './AppView.vue';
+import { router, data } from './router';
 import Clipboard from 'v-clipboard'
-import { router, data } from './router'
-const Portfolio = Vue.extend(AppView)
-import VueAnnouncer from 'vue-announcer'
-import { marked } from 'marked'
-import './console'
-import '../stylesheets/style.sass'
+import VueAnnouncer from '@vue-a11y/announcer';
+import { marked } from 'marked';
+import './console';
+import './analytics';
+import '../stylesheets/style.sass';
+import GChart from "vue-google-charts/legacy";
 
+const app = createApp(AppView);
+app.config.globalProperties.cdn = import.meta.env.VITE_CDN;
+app.config.globalProperties.$api = {
+    content: import.meta.env.VITE_CMS,
+    jobs: import.meta.env.VITE_JOBS_API
+};
 
-Vue.use(Clipboard)
-Vue.use(VueAnnouncer)
-require("./analytics")
+app.use(router);
+app.use(Clipboard);
+app.use(VueAnnouncer);
+app.use(GChart);
+app.mount('#app');
 
 //Directives
-Vue.directive('scrollvisible', {
+app.directive('scrollvisible', {
     inViewport (el) {
         var rect = el.getBoundingClientRect()
         return !(rect.bottom < 0 || rect.right < 0 ||
@@ -52,22 +58,13 @@ Vue.directive('scrollvisible', {
 })
 
 router.afterEach((to, from) => {
-    Vue.nextTick(() => {
+    app.nextTick(() => {
         document.title = to.meta.title || data.titlePrefix + "Senior Product Designer";
     });
 });
 
-Vue.filter('markdown', function(value) {
-    return marked.parse(value);
-})
-
-// Constructor
-const app = new Portfolio({
-    el: '#app',
-    data() {
-        return {
-            cdn: data.cdn
-        }
-    },
-    router
-});
+app.config.globalProperties.$filters = {
+    markdown(value) {
+        return marked.parse(value);
+    }
+}
