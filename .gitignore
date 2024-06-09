@@ -9,9 +9,5 @@ data/*
 !data/config.json
 CONTENT.txt
 src/images/*
-public/js/*.json
-src/js/fontawesome.min.js
-src/js/light.min.js
-src/js/app.min.js
-src/js/error.min.js
+src/js/content.json
 dist/
