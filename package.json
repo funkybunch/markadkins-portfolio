@@ -9,7 +9,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "compile": "vite build",
-    "compile:serve": "npm run preview"
+    "compile:serve": "npm run preview",
+    "generate": "vite build && node prerender"
   },
   "dependencies": {
     "@vue-a11y/announcer": "^3.1.5",
