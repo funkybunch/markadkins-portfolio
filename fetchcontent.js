@@ -20,5 +20,5 @@ axios.get(process.env.VITE_CMS).then(function(data) {
     for(let institution in content.education) {
         routes.push('/education/' + urlify(content.education[institution].attributes.institution));
     }
-    console.log(routes)
+    fs.writeFileSync(path.join(__dirname, 'src/js/routes.json'), JSON.stringify(routes));
 });

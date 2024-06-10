@@ -7,8 +7,10 @@ export default defineConfig({
     envDir: __dirname,
     plugins: [vue()],
     publicDir: path.join(__dirname, '/public'),
+    ssr: true,
     build: {
         outDir: '../dist',
         minify: 'esbuild',
+        ssrManifest: true
     }
 });

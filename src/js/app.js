@@ -4,18 +4,18 @@
  */
 
 // App Core
-import { createApp, ref } from 'vue';
+import { createSSRApp, ref } from 'vue';
 import AppView from './AppView.vue';
-import { router, data } from './router';
+import { router, data } from './router.js';
 import Clipboard from 'v-clipboard'
 import VueAnnouncer from '@vue-a11y/announcer';
 import { marked } from 'marked';
-import './console';
-import './analytics';
+import './console.js';
+import './analytics.js';
 import '../stylesheets/style.sass';
-import GChart from "vue-google-charts/legacy";
+import GChart from "vue-google-charts";
 
-const app = createApp(AppView);
+const app = createSSRApp(AppView);
 app.config.globalProperties.cdn = import.meta.env.VITE_CDN;
 app.config.globalProperties.$api = {
     content: import.meta.env.VITE_CMS,
@@ -68,3 +68,5 @@ app.config.globalProperties.$filters = {
         return marked.parse(value);
     }
 }
+
+export default { app, router };
