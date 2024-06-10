@@ -3,11 +3,12 @@ import vue from "@vitejs/plugin-vue";
 import path from "path";
 
 export default defineConfig({
-    root: path.join(__dirname, '/src/'),
+    root: path.join(__dirname, '/src'),
     envDir: __dirname,
     plugins: [vue()],
+    publicDir: path.join(__dirname, '/public'),
     build: {
         outDir: '../dist',
-        minify: 'esbuild'
+        minify: 'esbuild',
     }
 });
