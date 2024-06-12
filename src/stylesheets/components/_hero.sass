@@ -1,4 +1,4 @@
-$hero-height: 39.6875rem
+$hero-height: 36.5rem
 
 .hero
   width: 100%
@@ -23,20 +23,22 @@ $hero-height: 39.6875rem
     user-select: text
     z-index: 100
     margin-top: $base-v-spacing
-    p
-      color: $white
-      font-size: 1.5rem
-      font-weight: normal
-      letter-spacing: 0.075rem
-      margin: $base-v-spacing/1.5 0
-      a
+    .description
+      p
         color: $white
-        text-decoration: underline
-        font-size: inherit
-      &.dark
-        color: $black
+        font-size: 1.5rem
+        font-weight: normal
+        letter-spacing: 0.075rem
+        margin: $base-v-spacing/1.5 0
         a
+          color: $white
+          text-decoration: underline
+          font-size: inherit
+      &.dark
+        p
           color: $black
+          a
+            color: $black
 
     h1
       color: $white
@@ -110,13 +112,17 @@ $hero-height: 39.6875rem
       background-position: bottom left
       opacity: 0.04
 
-  &.jmu
+  &.james_madison_university
     background: #450084
     .hero-image
       background-position: top right
       opacity: 0.04
+    .hero-content
+      margin-top: $base-h-spacing * 4
+      img
+        max-width: 40rem
 
-  &.ga_tech
+  &.georgia_tech
     background: #DAD0AC
     .hero-image
       background-position: center

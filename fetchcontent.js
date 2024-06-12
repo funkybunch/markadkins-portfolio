@@ -15,10 +15,10 @@ axios.get(process.env.VITE_CMS).then(function(data) {
     const content = data.data;
     fs.writeFileSync(path.join(__dirname, 'src/js/content.json'), JSON.stringify(content));
     for(let company in content.experience) {
-        routes.push('/experience/' + urlify(content.experience[company].attributes.company));
+        routes.push('/experience/' + urlify(content.experience[company].attributes.company) + '/index');
     }
     for(let institution in content.education) {
-        routes.push('/education/' + urlify(content.education[institution].attributes.institution));
+        routes.push('/education/' + urlify(content.education[institution].attributes.institution) + '/index');
     }
     fs.writeFileSync(path.join(__dirname, 'src/js/routes.json'), JSON.stringify(routes));
 });

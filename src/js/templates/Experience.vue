@@ -42,7 +42,8 @@
         },
         mounted() {
             let self = this;
-            if(this.content.callout[0].applicant_tracking_system) {
+            if(this.content.callout[0]['__component'] === 'layout.callout-jobs') {
+              console.log(this.content.callout[0]['__component'])
                 axios
                     .get(this.$api.jobs)
                     .then(function(response) {

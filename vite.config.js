@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import path from "path";
+import routes from "./src/js/routes.json";
 
 export default defineConfig({
     root: path.join(__dirname, '/src'),
@@ -12,5 +13,10 @@ export default defineConfig({
         outDir: '../dist',
         minify: 'esbuild',
         ssrManifest: true
+    },
+    ssgOptions: {
+        includedRoutes() {
+            return routes;
+        }
     }
 });
