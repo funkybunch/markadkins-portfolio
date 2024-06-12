@@ -1,7 +1,7 @@
 <template>
     <aside class="callout-card" v-bind:class="['items-' + results.length, { filterable : hasCategories }, { 'filter-row-3' : (categories.length > 4) }]">
         <h2>{{ content.title }}</h2>
-        <h3 v-if="content.subtitle" class="h4">{{ content.subtitle }}</h3>
+        <p v-if="content.subtitle">{{ content.subtitle }}</p>
         <fieldset v-if="hasCategories" class="filter-button-group">
             <legend class="sr-only">Job Opening Filter</legend>
             <span>
