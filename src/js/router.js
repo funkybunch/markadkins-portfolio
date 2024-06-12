@@ -4,7 +4,7 @@
  */
 
 // Router Core
-import { createRouter, createWebHistory }  from 'vue-router';
+// import { createRouter, createWebHistory }  from 'vue-router';
 const cdn = import.meta.env.VITE_CDN;
 const titlePrefix = "Mark Adkins // ";
 const currentCompany = "Fidelity";
@@ -27,28 +27,33 @@ const OPTIONS = {
     }
 }
 
-function getContent(type, entity) {
+export function getContent(type, entity) {
     let output = {};
     let index;
     let current = (currentCompany.toLowerCase() === entity.replace(/-/g," ").toLowerCase());
     for(let i = 0; Content[type.label].length > i; i++) {
-        console.log("run", type)
-        console.log("comparing", Content[type.label][i]['attributes'][type.matchOn].toLowerCase(), "to", entity.replace(/-/g," ").toLowerCase())
+        // console.log("run", type)
+        // console.log("comparing", Content[type.label][i]['attributes'][type.matchOn].toLowerCase(), "to", entity.replace(/-/g," ").toLowerCase())
         if(Content[type.label][i]['attributes'][type.matchOn].toLowerCase() === entity.replace(/-/g," ").toLowerCase()) {
             index = i;
+            // console.log("index:", i)
             break;
         }
     }
     try {
         output = JSON.parse(JSON.stringify(Content[type.label][index]));
-        output.attributes.company = JSON.parse(JSON.stringify(Content[type.label][index].attributes.company));
+        output.attributes[type.matchOn] = JSON.parse(JSON.stringify(Content[type.label][index].attributes[type.matchOn]));
         output.attributes.hero.brand = JSON.parse(JSON.stringify(Content[type.label][index].attributes.hero.brand.data.attributes.url));
         output.attributes.hero.brandWidth = JSON.parse(JSON.stringify(Content[type.label][index].attributes.hero.brand.data.attributes.width));
         output.attributes.hero.brandHeight = JSON.parse(JSON.stringify(Content[type.label][index].attributes.hero.brand.data.attributes.height));
         output.attributes.hero.classes = JSON.parse(JSON.stringify(Content[type.label][index].attributes.hero.title.replace(/ /g,"_").toLowerCase()));
+        if(Content[type.label][index].attributes.content_block) {
+            output.content_block = JSON.parse(JSON.stringify(Content[type.label][index].attributes.content_block));
+            delete output.attributes.content_block;
+        }
         output.callout = JSON.parse(JSON.stringify(Content[type.label][index].attributes.Callout));
         output.calloutCurrent = current;
-        delete output.Callout;
+        delete output.attributes.Callout;
         output.modalAction = {
             callback: function(location) {
                 window.open(location, "_blank");
@@ -65,8 +70,7 @@ function getContent(type, entity) {
     }
 }
 
-// Router Configuration
-const routes = [
+export const routes = [
     {
         path: '/',
         name: 'Home',
@@ -111,12 +115,7 @@ const routes = [
         name: 'error',
         component: ErrorTemplate
     }
-]
-
-export const router = createRouter({
-    history: createWebHistory(),
-    routes,
-})
+];
 
 export const data = {
     cdn,

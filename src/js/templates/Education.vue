@@ -1,6 +1,6 @@
 <template>
     <div class="app-container">
-        <Hero classes="education" :content="content.hero" />
+        <Hero classes="education" :content="content.attributes.hero" />
         <div class="main-container">
             <div class="row reverse-stack">
                 <div class="col w-6">
@@ -8,7 +8,7 @@
                     <div v-html="$filters.markdown(content.content_block[0].description)"></div>
                 </div>
                 <div class="col w-6">
-                    <div id="card-container"></div>
+                  <CalloutCard v-if="callout" :content="callout"/>
                 </div>
             </div>
             <div class="row">
@@ -27,7 +27,6 @@
     import Footer from '../components/Footer.vue'
     import CalloutCard from '../components/CalloutCard.vue'
     import axios from 'axios'
-    const CalloutCore = CalloutCard;
 
     export default {
         name: 'EducationTemplate',
@@ -38,31 +37,15 @@
             CalloutCard
         },
         data() {
-            return {
-                callout: this.$props.content.callout
+          return {
+            callout: {
+              items: this.$props.content.callout[0].callout_list_item,
+              title: this.$props.content.callout[0].title
             }
+          }
         },
-        methods: {
-            updateCardData(obj) {
-                this.callout = obj;
-            },
-            updateCardItems(){
-                const card = new CalloutCore({
-                    propsData: {
-                        content: this.callout
-                    }
-                });
-                card.$mount('#card-container');
-            }
-        },
-        mounted() {
-            let self = this;
-            this.callout.cdn = this.cdn;
-            this.updateCardData({
-              items: self.content.callout[0].callout_list_item,
-              title: self.content.callout[0].title
-            });
-            self.updateCardItems();
+        created() {
+          console.log(this.content)
         }
     }
 </script>

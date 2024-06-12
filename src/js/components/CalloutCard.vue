@@ -26,14 +26,14 @@
             </span>
         </fieldset>
         <div class="results-container">
-            <div class="results-content">
+            <div :class="(hasCategories)?'categories results-content':'no-categories results-content'">
                 <p v-if="hasCategories">{{ results.length }} {{ content.type }}</p>
                 <CalloutCardItem
                         v-for="item in results"
                         v-bind:key="item.index"
                         v-bind:content="item"
                         v-bind:cdn="content.cdn"
-                        v-bind:action-trigger.sync="actionListener"
+                        v-bind:action-trigger="actionListener"
                         @action-triggered="action"
                 />
             </div>
@@ -87,6 +87,7 @@
         },
         methods: {
             loadAllResults() {
+              console.log(this.$props.content)
                 this.$data.results = JSON.parse(JSON.stringify(this.$props.content.items));
             },
             loadCategories(){

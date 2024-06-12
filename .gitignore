@@ -12,3 +12,4 @@ src/images/*
 src/js/content.json
 src/js/routes.json
 dist/
+src/.vite-ssg-temp
