@@ -7,7 +7,8 @@
                   <CalloutCard v-if="callout" :content="callout"/>
                 </div>
                 <div class="col w-6">
-                    <h2 class="bold">My Role</h2>
+                    <h2 class="bold no-padding">My Role</h2>
+                    <h3 class="overline" v-if="content.attributes.role.title !== null" v-html="content.attributes.role.title"></h3>
                     <div v-html="$filters.markdown(content.attributes.role.body)"></div>
                 </div>
             </div>
