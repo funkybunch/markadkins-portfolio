@@ -20,12 +20,23 @@
     name: 'AppView',
     data() {
       return {
-        timeToVote: true
+        timeToVote: this.showVoterRegistrationPrompt()
       }
     },
     watch: {
       $route(to, from) {
         document.title = to.meta.title || 'Mark Adkins Design'
+      }
+    },
+    methods: {
+      electionYear: function(yr) {
+        return (yr % 400) ? ((yr % 100) ? ((yr % 4) ? false : true) : false) : true;
+      },
+      showVoterRegistrationPrompt: function() {
+        if(new Date().getMonth()+1 >= 9) {
+          return this.electionYear(new Date().getFullYear());
+        }
+        return false;
       }
     }
   }
